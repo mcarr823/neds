@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Neds"
 include(":app")
+include(":net")
 include(":common")

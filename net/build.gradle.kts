@@ -44,4 +44,8 @@ dependencies {
     // data classes automatically.
     implementation(libs.ktor.content.negotiation)
     implementation(libs.ktor.serialization.json)
+
+    // Robolectric is needed for mocking the Android Uri class.
+    testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
 }

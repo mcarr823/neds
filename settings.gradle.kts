@@ -22,5 +22,6 @@ dependencyResolutionManagement {
 rootProject.name = "Neds"
 include(":app")
 include(":net")
+include(":mock")
 include(":common")
 include(":data")

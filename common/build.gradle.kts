@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("kotlinx-serialization")
 }
 
 android {
@@ -30,4 +31,10 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+}
+
+dependencies {
+
+    // Needed for the @Serializable tag on data classes
+    implementation(libs.kotlinx.serialization.json)
 }

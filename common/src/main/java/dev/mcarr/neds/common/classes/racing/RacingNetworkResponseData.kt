@@ -1,4 +1,4 @@
-package dev.mcarr.neds.data.classes.racing
+package dev.mcarr.neds.common.classes.racing
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

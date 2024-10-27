@@ -2,7 +2,8 @@ package dev.mcarr.neds.data.datasources
 
 import dev.mcarr.neds.common.enums.http.EventType
 import dev.mcarr.neds.common.enums.racing.RacingMethod
-import dev.mcarr.neds.data.classes.racing.RacingNetworkResponse
+import dev.mcarr.neds.common.interfaces.data.datasources.IRacingDataSource
+import dev.mcarr.neds.common.classes.racing.RacingNetworkResponse
 import dev.mcarr.neds.net.client.KtorClient
 import dev.mcarr.neds.net.uri.NedsUri
 import io.ktor.client.call.body

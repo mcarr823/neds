@@ -1,5 +1,6 @@
 package dev.mcarr.neds.data.classes.racing
 
+import dev.mcarr.neds.common.classes.racing.RacingNetworkResponse
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertNotNull
 import kotlinx.serialization.json.Json

@@ -1,4 +1,4 @@
-package dev.mcarr.neds.data.classes.racing
+package dev.mcarr.neds.common.classes.racing
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -19,6 +19,8 @@ data class RacingNetworkResponse(
 
     /**
      * Racing data queried from the server.
+     *
+     * TODO make it nullable? test some invalid responses
      * */
     @SerialName("data")
     val data: RacingNetworkResponseData,

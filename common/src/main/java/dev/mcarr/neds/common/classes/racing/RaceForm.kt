@@ -1,8 +1,8 @@
-package dev.mcarr.neds.data.classes.racing
+package dev.mcarr.neds.common.classes.racing
 
-import dev.mcarr.neds.data.classes.common.DistanceType
-import dev.mcarr.neds.data.classes.common.TrackCondition
-import dev.mcarr.neds.data.classes.common.Weather
+import dev.mcarr.neds.common.classes.common.DistanceType
+import dev.mcarr.neds.common.classes.common.TrackCondition
+import dev.mcarr.neds.common.classes.common.Weather
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

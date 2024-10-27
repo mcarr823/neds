@@ -1,7 +1,7 @@
 package dev.mcarr.neds.data.repositories
 
-import dev.mcarr.neds.data.classes.racing.RaceSummary
-import dev.mcarr.neds.data.datasources.IRacingDataSource
+import dev.mcarr.neds.common.classes.racing.RaceSummary
+import dev.mcarr.neds.common.interfaces.data.datasources.IRacingDataSource
 
 /**
  * Repository for requesting racing data.

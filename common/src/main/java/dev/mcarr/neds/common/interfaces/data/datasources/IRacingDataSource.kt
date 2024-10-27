@@ -1,6 +1,6 @@
-package dev.mcarr.neds.data.datasources
+package dev.mcarr.neds.common.interfaces.data.datasources
 
-import dev.mcarr.neds.data.classes.racing.RacingNetworkResponse
+import dev.mcarr.neds.common.classes.racing.RacingNetworkResponse
 
 /**
  * Interface from which any data sources extending or mocking the

@@ -1,4 +1,4 @@
-package dev.mcarr.neds.data.classes.common
+package dev.mcarr.neds.common.classes.common
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

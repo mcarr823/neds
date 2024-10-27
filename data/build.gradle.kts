@@ -47,4 +47,7 @@ dependencies {
 
     // Serialization is used to convert HTTP responses to data classes
     implementation(libs.kotlinx.serialization.json)
+    testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.kotlinx.coroutines.test)
 }

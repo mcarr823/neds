@@ -1,7 +1,5 @@
 package dev.mcarr.neds.mock.data.datasources
 
-import android.content.Context
-import androidx.test.core.app.ApplicationProvider
 import dev.mcarr.neds.common.enums.racing.RacingCategory
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.test.runTest
@@ -22,14 +20,9 @@ import org.robolectric.RobolectricTestRunner
 class FakeRacingDataSourceTest {
 
     /**
-     * Context used to parse the assets file and retrieve test data.
-     * */
-    val c = ApplicationProvider.getApplicationContext<Context>()
-
-    /**
      * Mock data source from which to retrieve racing data.
      * */
-    val source = FakeRacingDataSource(c)
+    val source = FakeRacingDataSource()
 
     /**
      * Requests information on a single race from the data source,

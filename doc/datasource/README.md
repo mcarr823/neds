@@ -12,3 +12,8 @@ Generally speaking, this will involve:
 - a composable in the :ui module which displays the data from the viewmodel
 
 Some of those may be omitted depending on what you are querying, how, and what it's being used for.
+
+1. [DataSources](DATA_SOURCES.md)
+2. [Repositories](REPOSITORIES.md)
+3. [UseCases](USE_CASES.md)
+4. [ViewModels](VIEW_MODELS.md)

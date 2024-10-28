@@ -1,5 +1,16 @@
 # Developer Documentation
 
 1. [Unit Tests](unit/README.md)
+   - [Mocking Android APIs](unit/MOCK.md)
+   - [Naming schemes](unit/NAMING.md)
 2. [Networking](network/README.md)
-3. [Data Sources](datasource/README.md)
+   - [Building URLs](network/BUILD_URL.md)
+   - [Defining query parameters](network/QUERY_PARAMETERS.md)
+   - [Changing the URL structure](network/URL_STRUCTURE.md)
+   - [Performing HTTP requests](network/HTTP_REQUEST.md)
+   - [Response data](network/RESPONSE_DATA.md)
+3. [MVVM, data sources](datasource/README.md)
+   - [DataSources](datasource/DATA_SOURCES.md)
+   - [Repositories](datasource/REPOSITORIES.md)
+   - [UseCases](datasource/USE_CASES.md)
+   - [ViewModels](datasource/VIEW_MODELS.md)

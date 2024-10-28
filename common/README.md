@@ -1,8 +1,8 @@
 # :common module
 
-The :common module is the lowest common denominator.
+The :common module is the lowest common denominator.  It does not and should not rely on any other modules.
 
-It does not rely on any other modules, and only contains classes which are useful across multiple other modules.
+It is intended for generic classes or data types which are useful across multiple other modules.
 
 For example:
 

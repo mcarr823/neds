@@ -1,6 +1,7 @@
 package dev.mcarr.neds.data.repositories
 
 import dev.mcarr.neds.common.enums.racing.RacingCategory
+import dev.mcarr.neds.common.sealed.racing.RacingNetworkRequestOutcome
 import dev.mcarr.neds.data.datasources.RacingDataSource
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.test.runTest
@@ -38,8 +39,10 @@ class RacingRepositoryTest {
     @Test
     fun oneRaceIsRequested_verifyTheSize(){
         runTest{
-            val resp = repo.getNextRace(1)
-            assertEquals(1, resp.size)
+            repo.getNextRace(1)
+            assert(repo.nextRaces.value is RacingNetworkRequestOutcome.Success)
+            val outcome = repo.nextRaces.value as RacingNetworkRequestOutcome.Success
+            assertEquals(1, outcome.response.getRaceSummaries().size)
         }
     }
 
@@ -50,8 +53,10 @@ class RacingRepositoryTest {
     @Test
     fun twoRacesAreRequested_verifyTheSize(){
         runTest{
-            val resp = repo.getNextRace(2)
-            assertEquals(2, resp.size)
+            repo.getNextRace(2)
+            assert(repo.nextRaces.value is RacingNetworkRequestOutcome.Success)
+            val outcome = repo.nextRaces.value as RacingNetworkRequestOutcome.Success
+            assertEquals(2, outcome.response.getRaceSummaries().size)
         }
     }
 
@@ -65,14 +70,16 @@ class RacingRepositoryTest {
     @Test
     fun multipleRacesAreRequested_verifyTheSizeAndCategories(){
         runTest{
-            val resp = repo.getNextRace(10)
-            assertEquals(10, resp.size)
+            repo.getNextRace(10)
+            assert(repo.nextRaces.value is RacingNetworkRequestOutcome.Success)
+            val outcome = repo.nextRaces.value as RacingNetworkRequestOutcome.Success
+            assertEquals(10, outcome.response.getRaceSummaries().size)
 
             val categoryIds = RacingCategory.entries
                 .filterNot { it == RacingCategory.ALL }
                 .map { it.uuid }
 
-            resp.forEach { summary ->
+            outcome.response.getRaceSummaries().forEach { summary ->
                 assert(summary.categoryId in categoryIds)
             }
         }

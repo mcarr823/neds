@@ -31,4 +31,19 @@ data class RacingNetworkResponse(
      * */
     @SerialName("message")
     val message: String
-)
+){
+
+    /**
+     * Convenience function to extract the race summary entries and put them
+     * all in a list.
+     *
+     * @return List of race summaries extracted from the network response.
+     * */
+    fun getRaceSummaries(): List<RaceSummary> {
+        return data
+            .raceSummaries
+            .entries
+            .map { it.value }
+    }
+
+}

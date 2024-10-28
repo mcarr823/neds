@@ -2,6 +2,7 @@ package dev.mcarr.neds.common.classes.racing
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlin.math.abs
 
 /**
  * Summary of a given racing event.
@@ -91,4 +92,77 @@ data class RaceSummary(
      * */
     @SerialName("venue_country")
     val venueCountry: String
-)
+){
+
+    /**
+     * Calculates the amount of time, measured in seconds, until the race is
+     * set to begin.
+     *
+     * This value may be negative if the race has already started.
+     *
+     * @return How many seconds until the race starts
+     * */
+    fun startsInSeconds(): Long {
+        val currentTimeSeconds = System.currentTimeMillis() / 1000
+        return advertisedStart.seconds - currentTimeSeconds
+    }
+
+    /**
+     * Checks if a race has already started and should no longer be displayed
+     * to the user.
+     *
+     * A race is considered "expired" if it started at least 60 seconds ago.
+     *
+     * @return True if the race started at least 60 seconds ago
+     * */
+    fun hasExpired(): Boolean {
+        val startsInSeconds = startsInSeconds()
+        return startsInSeconds <= -60
+    }
+
+    /**
+     * Provides a text representation of the starting time of an event.
+     *
+     * This is intended as display text to be shown to the user.
+     *
+     * Time may be measured in either minutes or seconds, and may show
+     * events which have or have not already started.
+     *
+     * NOTE: This function does not currently handle units of time measurement
+     * greater than minutes, nor does it handle negative time units greater
+     * than seconds.
+     *
+     * That is because the app currently only displayed recent events, or events
+     * which are comping up in the near future.
+     *
+     * This should change if/when the app is updated to show events which are
+     * further in the past or future.
+     *
+     * @return User-displayable text representation of a race's starting time
+     * */
+    fun startsInDisplayText(): String {
+        val startsInSeconds = startsInSeconds()
+        if (startsInSeconds < 0){
+            val absoluteSeconds = abs(startsInSeconds)
+            return "Started $absoluteSeconds seconds ago"
+        }else if (startsInSeconds >= 60) {
+            val startsInMinutes = startsInSeconds / 60
+            return "Starts in $startsInMinutes mins"
+        }else {
+            return "Starts in $startsInSeconds seconds"
+        }
+    }
+
+    /**
+     * Provides a text representation of the race number in the format
+     * of: "Race #${number}"
+     *
+     * This is intended as display text to be shown to the user.
+     *
+     * @return User-displayable text representation of a race number
+     * */
+    fun getRaceNumberDisplayText(): String {
+        return "Race #$raceNumber"
+    }
+
+}

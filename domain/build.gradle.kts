@@ -33,4 +33,19 @@ android {
 }
 
 dependencies {
+    // For repositories
+    implementation(project(":data"))
+
+    // Core coroutines library is needed for specifying return types
+    // for interfaces which expose Flows.
+    implementation(libs.kotlinx.coroutines.core)
+
+    // Needed for common data types
+    implementation(project(":common"))
+
+    // Mock data for unit testing
+    testImplementation(project(":mock"))
+
+    testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
 }

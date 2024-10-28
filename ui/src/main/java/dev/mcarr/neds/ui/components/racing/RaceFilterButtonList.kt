@@ -6,7 +6,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
 import dev.mcarr.neds.common.enums.racing.RacingCategory
 import dev.mcarr.neds.ui.components.base.FilterButtonListMulti
-import dev.mcarr.neds.ui.components.base.FilterButtonListSingle
 import dev.mcarr.neds.ui.theme.NedsTheme
 
 /**

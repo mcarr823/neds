@@ -6,6 +6,8 @@ import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import dev.mcarr.neds.ui.theme.NedsTheme
 
@@ -35,7 +37,9 @@ fun <T> FilterButtonListMulti(
     selectChoices: (List<T>) -> Unit
 ) {
 
-    MultiChoiceSegmentedButtonRow {
+    MultiChoiceSegmentedButtonRow(
+        modifier = Modifier.testTag("FilterButtonListMulti")
+    ) {
         choices.forEachIndexed { index, choice ->
             SegmentedButton(
                 checked = choice.second in currentChoices,
@@ -45,16 +49,17 @@ fun <T> FilterButtonListMulti(
                     // based on whether it is checked or not.
                     val newChoices =
                         if (checked){
-                            currentChoices.filter { it != choice }
-                        }else{
                             currentChoices + choice.second
+                        }else{
+                            currentChoices.filter { it != choice.second }
                         }
 
                     selectChoices(newChoices)
 
                 },
                 label = { Text(choice.first) },
-                shape = SegmentedButtonDefaults.itemShape(index = index, count = choices.size)
+                shape = SegmentedButtonDefaults.itemShape(index = index, count = choices.size),
+                modifier = Modifier.testTag("FilterButtonListMultiButton_$index")
             )
         }
     }

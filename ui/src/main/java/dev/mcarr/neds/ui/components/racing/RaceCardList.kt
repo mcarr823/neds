@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import dev.mcarr.neds.common.classes.racing.RaceCardData
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 import dev.mcarr.neds.mock.data.datasources.FakeRacingDataSource
 import dev.mcarr.neds.ui.theme.NedsTheme
@@ -24,14 +25,16 @@ import dev.mcarr.neds.ui.theme.NedsTheme
 @Composable
 fun RaceCardList(
     numberToDisplay: Int,
-    summaries: List<RaceSummary>
+    summaries: List<RaceCardData>
 ) {
 
     LazyColumn {
         items(numberToDisplay){ i ->
+            Spacer(modifier = Modifier.height(8.dp))
             if (i < summaries.size) {
-                Spacer(modifier = Modifier.height(8.dp))
-                RaceCard(summaries[i])
+                RaceCard(
+                    summaries[i]
+                )
             }else{
                 RaceCardLoading()
             }
@@ -48,6 +51,7 @@ fun RaceCardList(
 fun PreviewRaceCardList(){
     val source = FakeRacingDataSource()
     val summaries = source.getRaceSummaries()
+        .map(RaceSummary::toRaceCardData)
     NedsTheme(
         darkTheme = false
     ) {
@@ -66,6 +70,7 @@ fun PreviewRaceCardList(){
 fun PreviewRaceCardListDark(){
     val source = FakeRacingDataSource()
     val summaries = source.getRaceSummaries()
+        .map(RaceSummary::toRaceCardData)
     NedsTheme(
         darkTheme = true
     ) {

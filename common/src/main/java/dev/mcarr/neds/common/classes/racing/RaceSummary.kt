@@ -165,4 +165,19 @@ data class RaceSummary(
         return "Race #$raceNumber"
     }
 
+    /**
+     * Export the race summary data as a RaceCardData object to be displayed
+     * on the UI.
+     *
+     * @return A RaceCardData object containing data from this summary
+     * 
+     * @see RaceCardData
+     * */
+    fun toRaceCardData() = RaceCardData(
+        raceId = raceId,
+        raceNumber = getRaceNumberDisplayText(),
+        startsIn = startsInDisplayText(),
+        meetingName = meetingName
+    )
+
 }

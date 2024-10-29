@@ -12,11 +12,11 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import dev.mcarr.neds.common.classes.racing.RaceCardData
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 import dev.mcarr.neds.mock.data.datasources.FakeRacingDataSource
 import dev.mcarr.neds.ui.theme.NedsTheme
@@ -32,17 +32,9 @@ import dev.mcarr.neds.ui.theme.NedsTheme
  * */
 @Composable
 fun RaceCard(
-    summary: RaceSummary,
+    summary: RaceCardData,
     onClick: () -> Unit = {}
 ) {
-
-    val raceNumber = remember {
-        summary.getRaceNumberDisplayText()
-    }
-
-    val startsIn = remember {
-        summary.startsInDisplayText()
-    }
 
     Card(
         onClick = onClick,
@@ -56,12 +48,11 @@ fun RaceCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(raceNumber)
-                Text(startsIn)
+                Text(summary.raceNumber)
+                Text(summary.startsIn)
             }
             Text(summary.meetingName)
         }
-        //
     }
 
 }
@@ -73,11 +64,12 @@ fun RaceCard(
 @Composable
 fun PreviewRaceCardSingle(){
     val source = FakeRacingDataSource()
+    val summary = source.getRaceSummary()
     NedsTheme(
         darkTheme = false
     ){
         RaceCard(
-            summary = source.getRaceSummary()
+            summary = summary.toRaceCardData()
         )
     }
 }
@@ -89,11 +81,12 @@ fun PreviewRaceCardSingle(){
 @Composable
 fun PreviewRaceCardSingleDark(){
     val source = FakeRacingDataSource()
+    val summary = source.getRaceSummary()
     NedsTheme(
         darkTheme = true
     ){
         RaceCard(
-            summary = source.getRaceSummary()
+            summary = summary.toRaceCardData()
         )
     }
 }
@@ -115,6 +108,7 @@ fun PreviewRaceCardSingleDark(){
 fun PreviewRaceCardMulti(){
     val source = FakeRacingDataSource()
     val summaries = source.getRaceSummaries()
+        .map(RaceSummary::toRaceCardData)
     NedsTheme{
         LazyColumn {
             items(summaries){

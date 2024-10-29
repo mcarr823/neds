@@ -1,5 +1,8 @@
 # Neds
 
+[![Compile app and run unit tests](https://github.com/mcarr823/neds/actions/workflows/compile.yml/badge.svg)](https://github.com/mcarr823/neds/actions/workflows/compile.yml)
+
+
 This is an example app for retrieving and displaying data from the Neds API.
 
 ## Modules

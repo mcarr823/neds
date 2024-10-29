@@ -7,6 +7,7 @@ import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.get
 import io.ktor.client.statement.HttpResponse
+import io.ktor.client.statement.bodyAsText
 import io.ktor.http.ContentType
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.Json
@@ -91,7 +92,9 @@ object KtorClient {
         getClient { client ->
             val uri = nedsUri.toString()
             Log.v(TAG, "GET $uri")
-            client.get(uri)
+            val response = client.get(uri)
+            Log.v(TAG, response.bodyAsText())
+            response
         }
 
 }

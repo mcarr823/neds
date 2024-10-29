@@ -33,6 +33,7 @@ class RacingRepository(
             val races = racingDataSource.getNextRace(count)
             nextRaces.value = RacingNetworkRequestOutcome.Success(races)
         }catch (e: Exception){
+            e.printStackTrace()
             nextRaces.value = RacingNetworkRequestOutcome.Failure(e)
         }
 

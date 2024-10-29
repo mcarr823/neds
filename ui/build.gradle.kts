@@ -52,6 +52,11 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(project(":data"))
+
+    // Core coroutines library is needed for specifying return types
+    // for interfaces which expose Flows.
+    implementation(libs.kotlinx.coroutines.core)
 
     // Robolectric and test.junit4 are needed for mocking
     // and testing compose components

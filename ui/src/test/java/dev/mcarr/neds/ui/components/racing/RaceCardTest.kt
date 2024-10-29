@@ -20,10 +20,7 @@ import org.junit.Test
 class RaceCardTest : AbstractUiUnitTest() {
 
     // Race summary to display
-    val summary = FakeRace1()
-
-    // Text for the "race starts in..." value derived from the summary
-    var startedText = ""
+    val summary = FakeRace1().toRaceCardData()
 
     // Number of times the card has been tapped
     val clicked = mutableStateOf<Int>(0)
@@ -33,11 +30,6 @@ class RaceCardTest : AbstractUiUnitTest() {
      * */
     @Before
     fun setup(){
-
-        // This is set here because the return value of the function
-        // changes every second. So it's important to save the value
-        // as soon as the summary object is composed.
-        startedText = summary.startsInDisplayText()
 
         setContent {
             var clickCount by remember { clicked }
@@ -61,11 +53,11 @@ class RaceCardTest : AbstractUiUnitTest() {
             .assertExists()
             .assertIsDisplayed()
 
-        onNodeWithText(startedText)
+        onNodeWithText(summary.startsIn)
             .assertExists()
             .assertIsDisplayed()
 
-        onNodeWithText(summary.getRaceNumberDisplayText())
+        onNodeWithText(summary.raceNumber)
             .assertExists()
             .assertIsDisplayed()
 

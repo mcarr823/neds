@@ -16,10 +16,35 @@ class FakeRacingDataSource : IRacingDataSource {
     /**
      * Hard-coded test data.
      *
+     * @param updateStartTime If true, update the start time of the test data
+     * before returning it.
+     * @param offset If `updateStartTime` is true, `offset` is the number of seconds from now
+     * when the race will begin.
+     *
      * @return A single RaceSummary object
      * */
-    fun getRaceSummary(): RaceSummary {
-        return fakeRace1()
+    fun getRaceSummary(
+        updateStartTimes: Boolean = true,
+        offset: Int = 30
+    ): RaceSummary {
+
+        val race = fakeRace1()
+
+        // If we aren't updating the start time, just return the data as-is
+        if (!updateStartTimes)
+            return race
+
+        // Calculate the current time in seconds.
+        // We use this value because the test data uses hard-coded times
+        // which will expire. So we need to adjust them relative to the
+        // current time in order to keep them relevant.
+        val currentTimeMillis = System.currentTimeMillis()
+        val currentTimeSeconds = currentTimeMillis / 1000
+        val newTimeSeconds = currentTimeSeconds + offset
+
+        return race.copy(
+            advertisedStart = race.advertisedStart.copy(seconds = newTimeSeconds)
+        )
     }
 
     /**

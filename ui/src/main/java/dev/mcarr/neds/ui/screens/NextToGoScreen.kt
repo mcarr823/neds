@@ -123,10 +123,6 @@ fun NextToGoScreen(
 
 /**
  * Preview of the NextToGoScreen composable in its Success state.
- *
- * NOTE This preview doesn't always display correctly due to the nature
- * of the viewmodel.
- * A mock viewmodel with fake data needs to be created to resolve this.
  * */
 @Preview
 @Composable
@@ -179,6 +175,28 @@ fun PreviewNextToGoInProgress(){
                     RacingUseCaseOutcome.Progress(),
                     listOf()
                 ))
+        )
+    }
+}
+
+/**
+ * Preview of the NextToGoScreen composable in its Success state with a large
+ * font.
+ * */
+@Preview(fontScale = 2f)
+@Composable
+fun PreviewNextToGoScreenLargeFont(){
+    val source = FakeRacingDataSource()
+    NedsTheme {
+        NextToGoScreen(
+            model = FakeNextToGoViewModel(
+                exactNumberOfResultsToDisplay = 5,
+                state = NextToGoScreenUiState(
+                    category = listOf(),
+                    loadingState = RacingUseCaseOutcome.Success(),
+                    races = source.getRaceSummaries().map { it.toRaceCardData() }
+                )
+            )
         )
     }
 }

@@ -84,6 +84,26 @@ fun PreviewRaceFilterButtonListDark(){
 }
 
 /**
+ * Preview of a RaceFilterButtonList component with multiple selections in light mode
+ * with a large font.
+ * */
+@Preview(fontScale = 2f)
+@Composable
+fun PreviewRaceFilterButtonListLargeFont(){
+    val currentChoices = listOf(RacingCategory.HARNESS_RACING, RacingCategory.HORSE_RACING)
+    NedsTheme(
+        darkTheme = false
+    ) {
+        Column {
+            RaceFilterButtonList(
+                currentChoices = currentChoices,
+                selectChoices = {}
+            )
+        }
+    }
+}
+
+/**
  * Preview of a RaceFilterButtonList component with multiple selections in light mode.
  * */
 @Preview

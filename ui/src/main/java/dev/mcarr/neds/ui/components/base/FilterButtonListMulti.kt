@@ -108,3 +108,26 @@ fun PreviewFilterButtonListMultiDark(){
         )
     }
 }
+
+
+
+/**
+ * Preview of a FilterButtonListMulti component in light mode with a large font.
+ * */
+@Preview(fontScale = 4f)
+@Composable
+fun PreviewFilterButtonListMultiLargeFont(){
+    val choices = listOf(
+        "1" to "choice1",
+        "2" to "choice2",
+        "3" to "choice3",
+        "4" to "choice4"
+    )
+    NedsTheme {
+        FilterButtonListMulti(
+            choices = choices,
+            currentChoices = listOf(choices[0].second, choices[2].second),
+            selectChoices = {}
+        )
+    }
+}

@@ -92,6 +92,32 @@ fun PreviewRaceCardSingleDark(){
 }
 
 /**
+ * Preview of RaceCard components in light mode with a large font.
+ * */
+@Preview(fontScale = 2f)
+@Composable
+fun PreviewRaceCardSingleLargeFont(){
+    val source = FakeRacingDataSource()
+    NedsTheme(
+        darkTheme = false
+    ){
+        Column {
+            RaceCard(
+                summary = source.getRaceSummary().toRaceCardData()
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            RaceCard(
+                summary = source.getRaceSummary(offset = 600).toRaceCardData()
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            RaceCard(
+                summary = source.getRaceSummary(offset = -59).toRaceCardData()
+            )
+        }
+    }
+}
+
+/**
  * Preview of multiple RaceCard components.
  *
  * NOTE When displaying multiple RaceCard components, you should probably

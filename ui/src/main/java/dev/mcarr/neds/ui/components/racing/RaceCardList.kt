@@ -80,3 +80,22 @@ fun PreviewRaceCardListDark(){
         )
     }
 }
+
+/**
+ * Preview of a RaceCardList component in light mode with a large font.
+ * */
+@Preview(fontScale = 2f)
+@Composable
+fun PreviewRaceCardListLargeFont(){
+    val source = FakeRacingDataSource()
+    val summaries = source.getRaceSummaries()
+        .map(RaceSummary::toRaceCardData)
+    NedsTheme(
+        darkTheme = false
+    ) {
+        RaceCardList(
+            numberToDisplay = 5,
+            summaries = summaries
+        )
+    }
+}

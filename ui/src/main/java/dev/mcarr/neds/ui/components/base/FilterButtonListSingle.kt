@@ -95,3 +95,25 @@ fun PreviewFilterButtonListSingleDark(){
         )
     }
 }
+
+/**
+ * Preview of a FilterButtonListSingle component in light mode
+ * with a large font.
+ * */
+@Preview(fontScale = 2f)
+@Composable
+fun PreviewFilterButtonListSingleLargeFont(){
+    val choices = listOf(
+        "1" to "choice1",
+        "2" to "choice2",
+        "3" to "choice3",
+        "4" to "choice4"
+    )
+    NedsTheme {
+        FilterButtonListSingle(
+            choices = choices,
+            currentChoice = choices[0].second,
+            selectChoice = {}
+        )
+    }
+}

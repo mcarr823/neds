@@ -72,6 +72,19 @@ fun PreviewRaceCardLoadingSingleDark(){
 }
 
 /**
+ * Preview of a single RaceCardLoading component in light mode with a large font.
+ * */
+@Preview(fontScale = 2f)
+@Composable
+fun PreviewRaceCardLoadingSingleLargeFont(){
+    NedsTheme(
+        darkTheme = false
+    ){
+        RaceCardLoading()
+    }
+}
+
+/**
  * Preview of multiple RaceCardLoading components.
  *
  * NOTE When displaying multiple RaceCardLoading components, you should probably

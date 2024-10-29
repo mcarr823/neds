@@ -1,0 +1,224 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Builder</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../../index.html">
+                            Neds
+                    </a>            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":net:dokkaHtmlPartial/release">androidJvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="net::dev.mcarr.neds.net.uri/NedsUri.Builder///PointingToDeclaration//36598056">
+  <div class="breadcrumbs"><a href="../../../index.html">net</a><span class="delimiter">/</span><a href="../../index.html">dev.mcarr.neds.net.uri</a><span class="delimiter">/</span><a href="../index.html">NedsUri</a><span class="delimiter">/</span><span class="current">Builder</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Builder</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":net:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">Builder</a></div><p class="paragraph">Internal builder class for NedsUri objects.</p><p class="paragraph">Follows the same format as the Uri.Builder() class, including the manner in which functions are chained together. However, this class restricts user input to only allow known parameters of a Neds API URL.</p><p class="paragraph">Most parameters are either optional, or have default values.</p><p class="paragraph">The only field requiring mandatory input is the <code class="lang-kotlin">eventType</code> field, set by the .setEventType() function.</p><p class="paragraph">Example usage:</p><p class="paragraph">val nedsUri = NedsUri.Builder()     .setEventType(EventType.RACING)     .setMethod(RacingMethod.NEXT_RACES.value)     .setCount(10)     .build()</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="1062926878%2FConstructors%2F36598056" anchor-label="Builder" id="1062926878%2FConstructors%2F36598056" data-filterable-set=":net:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":net:dokkaHtmlPartial/release" data-filterable-set=":net:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-builder.html"><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1062926878%2FConstructors%2F36598056"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":net:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1965330827%2FFunctions%2F36598056" anchor-label="build" id="1965330827%2FFunctions%2F36598056" data-filterable-set=":net:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":net:dokkaHtmlPartial/release" data-filterable-set=":net:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="build.html"><span><span>build</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1965330827%2FFunctions%2F36598056"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":net:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="build.html"><span class="token function">build</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../index.html">NedsUri</a></div><div class="brief "><p class="paragraph">Constructs a NedsUri object from the parameters which have been provided to the Builder object.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2089553554%2FFunctions%2F36598056" anchor-label="setApiType" id="-2089553554%2FFunctions%2F36598056" data-filterable-set=":net:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":net:dokkaHtmlPartial/release" data-filterable-set=":net:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-api-type.html"><span>set</span><wbr><span>Api</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2089553554%2FFunctions%2F36598056"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":net:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-api-type.html"><span class="token function">setApiType</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">apiType<span class="token operator">: </span><a href="../../../../common/dev.mcarr.neds.common.enums.http/-api-type/index.html">ApiType</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">NedsUri.Builder</a></div><div class="brief "><p class="paragraph">Sets the type of API endpoint which we are querying. eg. a REST API endpoint.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1575236914%2FFunctions%2F36598056" anchor-label="setCount" id="1575236914%2FFunctions%2F36598056" data-filterable-set=":net:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":net:dokkaHtmlPartial/release" data-filterable-set=":net:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-count.html"><span>set</span><wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1575236914%2FFunctions%2F36598056"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":net:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-count.html"><span class="token function">setCount</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">count<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">NedsUri.Builder</a></div><div class="brief "><p class="paragraph">Specifies the number of results which the request should return by setting the <code class="lang-kotlin">count</code> query parameter of a HTTP request.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1336927918%2FFunctions%2F36598056" anchor-label="setEventType" id="1336927918%2FFunctions%2F36598056" data-filterable-set=":net:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":net:dokkaHtmlPartial/release" data-filterable-set=":net:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-event-type.html"><span>set</span><wbr><span>Event</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1336927918%2FFunctions%2F36598056"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":net:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-event-type.html"><span class="token function">setEventType</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">eventType<span class="token operator">: </span><a href="../../../../common/dev.mcarr.neds.common.enums.http/-event-type/index.html">EventType</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">NedsUri.Builder</a></div><div class="brief "><p class="paragraph">Specifies the type of event we are querying. eg. "racing"</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2142021440%2FFunctions%2F36598056" anchor-label="setHost" id="2142021440%2FFunctions%2F36598056" data-filterable-set=":net:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":net:dokkaHtmlPartial/release" data-filterable-set=":net:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-host.html"><span>set</span><wbr><span><span>Host</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2142021440%2FFunctions%2F36598056"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":net:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-host.html"><span class="token function">setHost</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">host<span class="token operator">: </span><a href="../../../../common/dev.mcarr.neds.common.enums.http/-api-host/index.html">ApiHost</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">NedsUri.Builder</a></div><div class="brief "><p class="paragraph">Sets the host of the URL. eg. api.neds.com.au</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1222108914%2FFunctions%2F36598056" anchor-label="setMethod" id="-1222108914%2FFunctions%2F36598056" data-filterable-set=":net:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":net:dokkaHtmlPartial/release" data-filterable-set=":net:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-method.html"><span>set</span><wbr><span><span>Method</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1222108914%2FFunctions%2F36598056"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":net:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-method.html"><span class="token function">setMethod</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">method<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">NedsUri.Builder</a></div><div class="brief "><p class="paragraph">Specifies the type of function we want the server to perform. eg. the "nextraces" method asks the server to generate and provide a list of upcoming races.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="373248816%2FFunctions%2F36598056" anchor-label="setScheme" id="373248816%2FFunctions%2F36598056" data-filterable-set=":net:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":net:dokkaHtmlPartial/release" data-filterable-set=":net:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-scheme.html"><span>set</span><wbr><span><span>Scheme</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="373248816%2FFunctions%2F36598056"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":net:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-scheme.html"><span class="token function">setScheme</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">scheme<span class="token operator">: </span><a href="../../../../common/dev.mcarr.neds.common.enums.http/-http-scheme/index.html">HttpScheme</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">NedsUri.Builder</a></div><div class="brief "><p class="paragraph">Sets the scheme of the URL. eg. http, https, ftp, etc.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="427967846%2FFunctions%2F36598056" anchor-label="setVersion" id="427967846%2FFunctions%2F36598056" data-filterable-set=":net:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":net:dokkaHtmlPartial/release" data-filterable-set=":net:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-version.html"><span>set</span><wbr><span><span>Version</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="427967846%2FFunctions%2F36598056"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":net:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-version.html"><span class="token function">setVersion</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">version<span class="token operator">: </span><a href="../../../../common/dev.mcarr.neds.common.enums.http/-api-version/index.html">ApiVersion</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">NedsUri.Builder</a></div><div class="brief "><p class="paragraph">Specifies the version of the API endpoint which we are targeting. eg. v1, v2, etc.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

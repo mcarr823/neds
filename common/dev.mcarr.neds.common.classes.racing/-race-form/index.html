@@ -1,0 +1,284 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>RaceForm</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../index.html">
+                            Neds
+                    </a>            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":common:dokkaHtmlPartial/release">androidJvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="common::dev.mcarr.neds.common.classes.racing/RaceForm///PointingToDeclaration//-719036216">
+  <div class="breadcrumbs"><a href="../../index.html">common</a><span class="delimiter">/</span><a href="../index.html">dev.mcarr.neds.common.classes.racing</a><span class="delimiter">/</span><span class="current">RaceForm</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Race</span><wbr><span><span>Form</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span class="token annotation builtin">Serializable</span></span></div></div><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">RaceForm</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>distance<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>distanceType<span class="token operator">: </span><a href="../../dev.mcarr.neds.common.classes.common/-distance-type/index.html">DistanceType</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>distanceTypeId<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>trackCondition<span class="token operator">: </span><a href="../../dev.mcarr.neds.common.classes.common/-track-condition/index.html">TrackCondition</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>trackConditionId<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>weather<span class="token operator">: </span><a href="../../dev.mcarr.neds.common.classes.common/-weather/index.html">Weather</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>weatherId<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>raceComment<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>additionalData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>generated<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>silkBaseUrl<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>raceCommentAlternative<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><p class="paragraph">Describes the conditions surrounding a particular race, such as the weather, the track condition, and the distance of the race.</p><p class="paragraph">This is only a subset of the information available about a given race. For more detailed information, see the RaceSummary class.</p><h4 class="">See also</h4><div class="table"><div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-race-summary/index.html"><span>Race</span><wbr><span><span>Summary</span></span></a></div></span></div><div><div class="title"><p class="paragraph">Note that some fields in this class, such as weather and raceComment, are marked as nullable.</p><p class="paragraph">This is because not all fields are guaranteed to be provided by the server.</p><p class="paragraph">eg. Weather data and race commentary may not be available yet, and may thus be omitted from the server response data.</p></div></div></div></div></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-2059303230%2FConstructors%2F-719036216" anchor-label="RaceForm" id="-2059303230%2FConstructors%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-race-form.html"><span>Race</span><wbr><span><span>Form</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2059303230%2FConstructors%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">distance<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">distanceType<span class="token operator">: </span><a href="../../dev.mcarr.neds.common.classes.common/-distance-type/index.html">DistanceType</a><span class="token punctuation">, </span></span><span class="parameter ">distanceTypeId<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">trackCondition<span class="token operator">: </span><a href="../../dev.mcarr.neds.common.classes.common/-track-condition/index.html">TrackCondition</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">trackConditionId<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">weather<span class="token operator">: </span><a href="../../dev.mcarr.neds.common.classes.common/-weather/index.html">Weather</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">weatherId<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">raceComment<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">additionalData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">generated<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">silkBaseUrl<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">raceCommentAlternative<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-1724061964%2FProperties%2F-719036216" anchor-label="additionalData" id="-1724061964%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="additional-data.html"><span>additional</span><wbr><span><span>Data</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1724061964%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/SerialName///PointingToDeclaration/"><span class="token annotation builtin">SerialName</span></span><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"additional_data"</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">val </span><a href="additional-data.html">additionalData</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">JSON string containing data which is largely duplicated with other fields in this class.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1976562192%2FProperties%2F-719036216" anchor-label="distance" id="-1976562192%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="distance.html"><span><span>distance</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1976562192%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/SerialName///PointingToDeclaration/"><span class="token annotation builtin">SerialName</span></span><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"distance"</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">val </span><a href="distance.html">distance</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Distance of the event.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1510845866%2FProperties%2F-719036216" anchor-label="distanceType" id="-1510845866%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="distance-type.html"><span>distance</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1510845866%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/SerialName///PointingToDeclaration/"><span class="token annotation builtin">SerialName</span></span><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"distance_type"</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">val </span><a href="distance-type.html">distanceType</a><span class="token operator">: </span><a href="../../dev.mcarr.neds.common.classes.common/-distance-type/index.html">DistanceType</a></div><div class="brief "><p class="paragraph">Unit of measurement used by <code class="lang-kotlin">distance</code>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="453201723%2FProperties%2F-719036216" anchor-label="distanceTypeId" id="453201723%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="distance-type-id.html"><span>distance</span><wbr><span>Type</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="453201723%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/SerialName///PointingToDeclaration/"><span class="token annotation builtin">SerialName</span></span><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"distance_type_id"</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">val </span><a href="distance-type-id.html">distanceTypeId</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">UUID of the <code class="lang-kotlin">distanceType</code>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-886660730%2FProperties%2F-719036216" anchor-label="generated" id="-886660730%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="generated.html"><span><span>generated</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-886660730%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/SerialName///PointingToDeclaration/"><span class="token annotation builtin">SerialName</span></span><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"generated"</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">val </span><a href="generated.html">generated</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">TODO verify this field's purpose Appears to be a boolean flag (1 or 0).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1209721767%2FProperties%2F-719036216" anchor-label="raceComment" id="1209721767%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="race-comment.html"><span>race</span><wbr><span><span>Comment</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1209721767%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/SerialName///PointingToDeclaration/"><span class="token annotation builtin">SerialName</span></span><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"race_comment"</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">val </span><a href="race-comment.html">raceComment</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Commentary available about the race.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1966930266%2FProperties%2F-719036216" anchor-label="raceCommentAlternative" id="-1966930266%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="race-comment-alternative.html"><span>race</span><wbr><span>Comment</span><wbr><span><span>Alternative</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1966930266%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/SerialName///PointingToDeclaration/"><span class="token annotation builtin">SerialName</span></span><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"race_comment_alternative"</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">val </span><a href="race-comment-alternative.html">raceCommentAlternative</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Alternative commentary available about the race. Usually matches the <code class="lang-kotlin">raceComment</code> field.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-497596020%2FProperties%2F-719036216" anchor-label="silkBaseUrl" id="-497596020%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="silk-base-url.html"><span>silk</span><wbr><span>Base</span><wbr><span><span>Url</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-497596020%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/SerialName///PointingToDeclaration/"><span class="token annotation builtin">SerialName</span></span><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"silk_base_url"</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">val </span><a href="silk-base-url.html">silkBaseUrl</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">TODO verify this field's purpose</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1380550603%2FProperties%2F-719036216" anchor-label="trackCondition" id="-1380550603%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="track-condition.html"><span>track</span><wbr><span><span>Condition</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1380550603%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/SerialName///PointingToDeclaration/"><span class="token annotation builtin">SerialName</span></span><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"track_condition"</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">val </span><a href="track-condition.html">trackCondition</a><span class="token operator">: </span><a href="../../dev.mcarr.neds.common.classes.common/-track-condition/index.html">TrackCondition</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Condition of the track.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1112897882%2FProperties%2F-719036216" anchor-label="trackConditionId" id="1112897882%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="track-condition-id.html"><span>track</span><wbr><span>Condition</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1112897882%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/SerialName///PointingToDeclaration/"><span class="token annotation builtin">SerialName</span></span><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"track_condition_id"</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">val </span><a href="track-condition-id.html">trackConditionId</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">UUID of the <code class="lang-kotlin">trackCondition</code>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="282610881%2FProperties%2F-719036216" anchor-label="weather" id="282610881%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="weather.html"><span><span>weather</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="282610881%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/SerialName///PointingToDeclaration/"><span class="token annotation builtin">SerialName</span></span><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"weather"</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">val </span><a href="weather.html">weather</a><span class="token operator">: </span><a href="../../dev.mcarr.neds.common.classes.common/-weather/index.html">Weather</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Expected type of weather at the given event.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1683249894%2FProperties%2F-719036216" anchor-label="weatherId" id="1683249894%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="weather-id.html"><span>weather</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1683249894%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/SerialName///PointingToDeclaration/"><span class="token annotation builtin">SerialName</span></span><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"weather_id"</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">val </span><a href="weather-id.html">weatherId</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">UUID of the <code class="lang-kotlin">weather</code>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

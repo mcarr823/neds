@@ -1,21 +1,29 @@
-name: Deploy Javadoc
+name: Docs
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # if you have a protection rule on your repository, you'll need to give write permission to the workflow.
     steps:
-      - name: Deploy JavaDoc 🚀
-        uses: MathieuSoysal/Javadoc-publisher.yml@v2.5.0
+      - uses: actions/checkout@v4
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          javadoc-branch: javadoc
-          java-version: 17
-          target-folder: javadoc
-          project: gradle
+          persist-credentials: false
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: 'adopt'
+
+      - name: Build documentation
+        run: ./gradlew dokkaHtmlMultiModule
+
+      - name: Publish documentation
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          BRANCH: gh-pages
+          FOLDER: build/dokka/htmlMultiModule
+

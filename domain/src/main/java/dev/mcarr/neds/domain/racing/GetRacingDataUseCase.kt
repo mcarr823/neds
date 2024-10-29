@@ -49,7 +49,6 @@ class GetRacingDataUseCase(
             val categoryIds = categoryList.map { it.uuid }
             races
                 .filter { categoryList.isEmpty() || it.categoryId in categoryIds }
-                .filterNot { it.hasExpired() }
                 .sortedBy { it.advertisedStart.seconds }
         }
     )

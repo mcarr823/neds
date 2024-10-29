@@ -5,6 +5,7 @@ import dev.mcarr.neds.common.enums.racing.RacingCategory
 import dev.mcarr.neds.data.repositories.RacingRepository
 import dev.mcarr.neds.mock.data.datasources.FakeRacingDataSource
 import junit.framework.TestCase.assertEquals
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -14,6 +15,7 @@ import org.junit.Test
 /**
  * Series of tests for the GetRacingDataUseCase class.
  * */
+@OptIn(ExperimentalCoroutinesApi::class)
 class GetRacingDataUseCaseTest {
 
     /**
@@ -39,31 +41,6 @@ class GetRacingDataUseCaseTest {
 
     /**
      * Requests races from the UseCase class, then uses a flow to filter out
-     * any expired races.
-     *
-     * This test checks if the expired races have been filtered out correctly.
-     * */
-    @Test
-    fun someRacesHaveExpired_expiredRacesAreExcluded(){
-        runTest{
-            useCase.getMoreRaces(10)
-
-            val values = mutableListOf<List<RaceSummary>>()
-            backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)){
-                useCase.categorizedRaces.toList(values)
-            }
-            val countNotExpired = useCase.cachedRaces.value.count { !it.hasExpired() }
-
-            // Before proceeding, confirm that at least one race was expired
-            assert(countNotExpired != useCase.cachedRaces.value.size)
-
-            assertEquals(1, values.size)
-            assertEquals(countNotExpired, values[0].size)
-        }
-    }
-
-    /**
-     * Requests races from the UseCase class, then uses a flow to filter out
      * races which belong to different categories.
      *
      * This test checks if the flow is updated correctly when the category
@@ -78,10 +55,10 @@ class GetRacingDataUseCaseTest {
             backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)){
                 useCase.categorizedRaces.toList(values)
             }
-            val countNotExpired = useCase.cachedRaces.value.count { !it.hasExpired() }
+            val countAllRaces = useCase.cachedRaces.value.size
 
             // Make sure there's at least one record first
-            assert(countNotExpired > 0)
+            assert(countAllRaces > 0)
 
             var total = 0
 
@@ -95,11 +72,11 @@ class GetRacingDataUseCaseTest {
             total += values.last().size
 
             // Sum up the results of each category, then compare them to the
-            // total number of (not expired) races.
+            // total number of races.
             // The numbers should match if
             // a) we make sure to test every category and
             // b) the flow is filtering by category correctly.
-            assertEquals(countNotExpired, total)
+            assertEquals(countAllRaces, total)
         }
     }
 

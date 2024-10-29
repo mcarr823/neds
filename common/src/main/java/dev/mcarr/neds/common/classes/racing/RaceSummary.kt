@@ -144,12 +144,12 @@ data class RaceSummary(
         val startsInSeconds = startsInSeconds()
         if (startsInSeconds < 0){
             val absoluteSeconds = abs(startsInSeconds)
-            return "Started $absoluteSeconds seconds ago"
+            return "Started ${absoluteSeconds}s ago"
         }else if (startsInSeconds >= 60) {
             val startsInMinutes = startsInSeconds / 60
-            return "Starts in $startsInMinutes mins"
+            return "Starts in ${startsInMinutes}m"
         }else {
-            return "Starts in $startsInSeconds seconds"
+            return "Starts in ${startsInSeconds}s"
         }
     }
 

@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.jetbrains.kotlin.serialization)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -40,6 +42,23 @@ android {
 }
 
 dependencies {
+    // Common classes
+    implementation(project(":common"))
+
+    // UI components
+    implementation(project(":ui"))
+
+    // Use cases
+    implementation(project(":domain"))
+
+    // Data sources, repositories
+    implementation(project(":data"))
+
+    // Compose navigation, for NavHost and such
+    implementation(libs.androidx.navigation.compose)
+
+    // Serialization is used for NavHost destination objects
+    implementation(libs.kotlinx.serialization.json)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

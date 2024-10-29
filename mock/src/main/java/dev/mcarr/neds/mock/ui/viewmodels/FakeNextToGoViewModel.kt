@@ -1,3 +1,5 @@
+package dev.mcarr.neds.mock.ui.viewmodels
+
 import dev.mcarr.neds.common.classes.racing.NextToGoScreenUiState
 import dev.mcarr.neds.common.enums.racing.RacingCategory
 import dev.mcarr.neds.common.interfaces.viewmodels.INextToGoViewModel

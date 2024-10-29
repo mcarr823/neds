@@ -1,6 +1,5 @@
 package dev.mcarr.neds.ui.screens
 
-import FakeNextToGoViewModel
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,6 +23,7 @@ import dev.mcarr.neds.common.sealed.racing.RacingUseCaseOutcome
 import dev.mcarr.neds.data.repositories.RacingRepository
 import dev.mcarr.neds.domain.racing.GetRacingDataUseCase
 import dev.mcarr.neds.mock.data.datasources.FakeRacingDataSource
+import dev.mcarr.neds.mock.ui.viewmodels.FakeNextToGoViewModel
 import dev.mcarr.neds.ui.components.racing.RaceCardList
 import dev.mcarr.neds.ui.components.racing.RaceFilterButtonList
 import dev.mcarr.neds.ui.theme.NedsTheme

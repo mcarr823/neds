@@ -8,7 +8,6 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.performClick
 import dev.mcarr.neds.common.enums.racing.RacingCategory
 import dev.mcarr.neds.ui.AbstractUiUnitTest
-import dev.mcarr.neds.ui.components.base.FilterButtonListMulti
 import junit.framework.TestCase.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -20,7 +19,7 @@ import org.junit.Test
  * since one component is based on the other.
  *
  * @see RaceFilterButtonList
- * @see FilterButtonListMultiTest
+ * @see dev.mcarr.neds.ui.components.base.FilterButtonListMultiTest
  * */
 class RaceFilterButtonListTest : AbstractUiUnitTest() {
 

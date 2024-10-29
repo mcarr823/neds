@@ -1,5 +1,6 @@
 package dev.mcarr.neds.ui.screens
 
+import FakeNextToGoViewModel
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,7 +17,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import dev.mcarr.neds.common.classes.racing.NextToGoScreenUiState
 import dev.mcarr.neds.common.enums.racing.RacingCategory
+import dev.mcarr.neds.common.interfaces.viewmodels.INextToGoViewModel
 import dev.mcarr.neds.common.sealed.racing.RacingUseCaseOutcome
 import dev.mcarr.neds.data.repositories.RacingRepository
 import dev.mcarr.neds.domain.racing.GetRacingDataUseCase
@@ -38,7 +41,7 @@ import dev.mcarr.neds.ui.viewmodels.NextToGoViewModel
  * */
 @Composable
 fun NextToGoScreen(
-    model: NextToGoViewModel
+    model: INextToGoViewModel
 ) {
 
     // Hard-coded value per spec
@@ -134,71 +137,51 @@ fun PreviewNextToGoScreen(){
     val source = FakeRacingDataSource()
     NedsTheme {
         NextToGoScreen(
-            model = NextToGoViewModel().apply {
-                this.source = GetRacingDataUseCase(
-                    RacingRepository(
-                        FakeRacingDataSource()
-                    )
-                ).apply {
-                    this.categories.value = listOf(RacingCategory.HARNESS_RACING)
-                    this.lastOutcome.value = RacingUseCaseOutcome.Success()
-                    this.cachedRaces.value = source.getRaceSummaries()
-                }
-            }
+            model = FakeNextToGoViewModel(
+                exactNumberOfResultsToDisplay = 5,
+                state = NextToGoScreenUiState(
+                    category = listOf(),
+                    loadingState = RacingUseCaseOutcome.Success(),
+                    races = source.getRaceSummaries().map { it.toRaceCardData() }
+                )
+            )
         )
     }
 }
 
 /**
- * Preview of the NextToGoScreen composable in its Success state.
- *
- * NOTE This preview doesn't always display correctly due to the nature
- * of the viewmodel.
- * A mock viewmodel with fake data needs to be created to resolve this.
+ * Preview of the NextToGoScreen composable in its Failure state.
  * */
 @Preview
 @Composable
 fun PreviewNextToGoFailed(){
     NedsTheme {
         NextToGoScreen(
-            model = NextToGoViewModel().apply {
-                this.source = GetRacingDataUseCase(
-                    RacingRepository(
-                        FakeRacingDataSource()
-                    )
-                ).apply {
-                    this.categories.value = listOf(RacingCategory.HARNESS_RACING)
-                    this.lastOutcome.value = RacingUseCaseOutcome.Failure(Exception())
-                    this.cachedRaces.value = listOf()
-                }
-            }
+            model = FakeNextToGoViewModel(
+                exactNumberOfResultsToDisplay = 5,
+                state = NextToGoScreenUiState(
+                    category = listOf(RacingCategory.HARNESS_RACING),
+                    loadingState = RacingUseCaseOutcome.Failure(Exception()),
+                    races = listOf()
+                )
+            )
         )
     }
 }
 
 /**
- * Preview of the NextToGoScreen composable in its Success state.
- *
- * NOTE This preview doesn't always display correctly due to the nature
- * of the viewmodel.
- * A mock viewmodel with fake data needs to be created to resolve this.
+ * Preview of the NextToGoScreen composable in its Progress state.
  * */
 @Preview
 @Composable
 fun PreviewNextToGoInProgress(){
     NedsTheme {
         NextToGoScreen(
-            model = NextToGoViewModel().apply {
-                this.source = GetRacingDataUseCase(
-                    RacingRepository(
-                        FakeRacingDataSource()
-                    )
-                ).apply {
-                    this.categories.value = listOf(RacingCategory.HORSE_RACING)
-                    this.lastOutcome.value = RacingUseCaseOutcome.Progress()
-                    this.cachedRaces.value = listOf()
-                }
-            }
+            model = FakeNextToGoViewModel(exactNumberOfResultsToDisplay = 5, state = NextToGoScreenUiState(
+                    listOf(RacingCategory.HORSE_RACING, RacingCategory.GREYHOUND_RACING),
+                    RacingUseCaseOutcome.Progress(),
+                    listOf()
+                ))
         )
     }
 }

@@ -34,6 +34,9 @@ android {
 }
 
 dependencies {
+    // Core coroutines library is needed for specifying return types
+    // for interfaces which expose Flows.
+    implementation(libs.kotlinx.coroutines.core)
 
     // Needed for the @Serializable tag on data classes
     implementation(libs.kotlinx.serialization.json)

@@ -6,9 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 import dev.mcarr.neds.common.enums.racing.RacingCategory
+import dev.mcarr.neds.common.interfaces.viewmodels.INextToGoViewModel
 import dev.mcarr.neds.common.sealed.racing.RacingUseCaseOutcome
 import dev.mcarr.neds.domain.racing.GetRacingDataUseCase
-import dev.mcarr.neds.ui.classes.NextToGoScreenUiState
+import dev.mcarr.neds.common.classes.racing.NextToGoScreenUiState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -30,7 +31,7 @@ import java.util.concurrent.TimeUnit
  * @see dev.mcarr.neds.ui.screens.NextToGoScreen
  * @see GetRacingDataUseCase
  * */
-class NextToGoViewModel : ViewModel() {
+class NextToGoViewModel : ViewModel(), INextToGoViewModel {
 
     /**
      * :domain layer class for applying business logic to the network data
@@ -89,7 +90,7 @@ class NextToGoViewModel : ViewModel() {
      * This number is used by both the UI (to show that exact number of results)
      * and by the viewmodel (to download more data if it doesn't meet this required number).
      * */
-    val exactNumberOfResultsToDisplay = 5
+    override val exactNumberOfResultsToDisplay = 5
 
     /**
      * Flow which updates the UiState object exposed to the user interface.
@@ -110,7 +111,7 @@ class NextToGoViewModel : ViewModel() {
      * @see GetRacingDataUseCase
      * @see NextToGoScreenUiState
      * */
-    val uiState by lazy {
+    override val uiState by lazy {
         combine(
             filteredRaces,
             lastOutcome,
@@ -148,7 +149,7 @@ class NextToGoViewModel : ViewModel() {
      * It only resets variables which are pertinent to the viewmodel providing
      * an ongoing data feed to the UI.
      * */
-    fun resetState(){
+    override fun resetState(){
         lastDownloadMillis = 0L
         lastOutcome.value = RacingUseCaseOutcome.Success()
         updateViews()
@@ -162,7 +163,7 @@ class NextToGoViewModel : ViewModel() {
      *
      * @param category List of categories by which to filter
      * */
-    fun setCategory(category: List<RacingCategory>){
+    override fun setCategory(category: List<RacingCategory>){
         source.setCategory(category)
     }
 

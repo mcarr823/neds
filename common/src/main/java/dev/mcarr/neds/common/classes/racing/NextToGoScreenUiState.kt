@@ -1,6 +1,5 @@
-package dev.mcarr.neds.ui.classes
+package dev.mcarr.neds.common.classes.racing
 
-import dev.mcarr.neds.common.classes.racing.RaceCardData
 import dev.mcarr.neds.common.enums.racing.RacingCategory
 import dev.mcarr.neds.common.sealed.racing.RacingUseCaseOutcome
 
@@ -11,9 +10,6 @@ import dev.mcarr.neds.common.sealed.racing.RacingUseCaseOutcome
  * @param category Applied category filters
  * @param loadingState Current state of the UseCase
  * @param races Races to display
- *
- * @see dev.mcarr.neds.ui.screens.NextToGoScreen
- * @see dev.mcarr.neds.ui.viewmodels.NextToGoViewModel
  * */
 data class NextToGoScreenUiState(
     val category: List<RacingCategory>,

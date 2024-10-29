@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace18() = RaceSummary(
+fun fakeRace18() = RaceSummary(
     raceId = "a1a9f25c-3ed7-48fb-b2d0-f4e125efc2f6",
     raceName = "Kevin & Kay Seymour Pace (Sky 2)",
     raceNumber = 1,

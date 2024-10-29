@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace11() = RaceSummary(
+fun fakeRace11() = RaceSummary(
     raceId = "4d94f0b8-ddc9-4dde-83f0-c6ad8db7958a",
     raceName = "Ladbrokes Romantic Warrior 2023 (Bm85)",
     raceNumber = 10,

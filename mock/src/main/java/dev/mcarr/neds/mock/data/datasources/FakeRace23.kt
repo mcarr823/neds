@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace23() = RaceSummary(
+fun fakeRace23() = RaceSummary(
     raceId = "eaa39759-e58c-498c-9b72-87ba0ff14041",
     raceName = "Tabtouch Supports Collie Racing Mdn",
     raceNumber = 4,

@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace25() = RaceSummary(
+fun fakeRace25() = RaceSummary(
     raceId = "f279b386-954f-48e6-90ed-4999a7b59e8d",
     raceName = "Mpc Kinetic Hcp (C1)",
     raceNumber = 1,

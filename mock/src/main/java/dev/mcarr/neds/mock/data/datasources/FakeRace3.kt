@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace3() = RaceSummary(
+fun fakeRace3() = RaceSummary(
     raceId = "10af6c65-cd58-4f57-b566-ad4b60a436ba",
     raceName = "Coastal Tipper Hire Hcp (C1)",
     raceNumber = 7,

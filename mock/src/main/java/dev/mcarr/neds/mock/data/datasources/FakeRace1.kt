@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace1() = RaceSummary(
+fun fakeRace1() = RaceSummary(
     raceId = "0046d79f-2a35-449b-91a5-ab714bc7674c",
     raceName = "Ladbrokes Live Betting Hcp (58)",
     raceNumber = 3,

@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace27() = RaceSummary(
+fun fakeRace27() = RaceSummary(
     raceId = "f7e7b8cd-4b8a-445f-9cee-cd96fb282c5c",
     raceName = "Jim Enright Celebrating 80Th Birthday (Bm48+)",
     raceNumber = 3,

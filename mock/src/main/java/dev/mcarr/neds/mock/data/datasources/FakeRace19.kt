@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace19() = RaceSummary(
+fun fakeRace19() = RaceSummary(
     raceId = "c4a95850-b6e1-410c-a2c5-87d27f109cc7",
     raceName = "2024 Sa Square Trotters Association Legends Trot (Final) (Sky 2)",
     raceNumber = 3,

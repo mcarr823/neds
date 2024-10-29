@@ -6,7 +6,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.performClick
-import dev.mcarr.neds.mock.data.datasources.FakeRace1
+import dev.mcarr.neds.mock.data.datasources.fakeRace1
 import dev.mcarr.neds.ui.AbstractUiUnitTest
 import junit.framework.TestCase.assertEquals
 import org.junit.Before
@@ -20,7 +20,7 @@ import org.junit.Test
 class RaceCardTest : AbstractUiUnitTest() {
 
     // Race summary to display
-    val summary = FakeRace1().toRaceCardData()
+    val summary = fakeRace1().toRaceCardData()
 
     // Number of times the card has been tapped
     val clicked = mutableStateOf<Int>(0)

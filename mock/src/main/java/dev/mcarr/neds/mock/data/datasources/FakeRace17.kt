@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace17() = RaceSummary(
+fun fakeRace17() = RaceSummary(
     raceId = "98bcae97-b748-40dd-96b9-19194c3b89a4",
     raceName = "Powerflo Solutions Tesio Stakes (G3)",
     raceNumber = 10,

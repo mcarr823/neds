@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace16() = RaceSummary(
+fun fakeRace16() = RaceSummary(
     raceId = "8286d263-904b-442b-bf69-32c311380a2c",
     raceName = "Robrick Lodge Filante Hcp",
     raceNumber = 10,

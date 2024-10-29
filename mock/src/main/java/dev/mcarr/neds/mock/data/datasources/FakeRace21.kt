@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace21() = RaceSummary(
+fun fakeRace21() = RaceSummary(
     raceId = "ca48c302-9b4c-49eb-97a3-ccfca8ca573c",
     raceName = "Ycjac - Darby Mccarthy Cup (C3)",
     raceNumber = 2,

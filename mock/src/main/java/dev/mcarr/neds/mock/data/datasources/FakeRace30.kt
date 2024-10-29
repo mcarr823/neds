@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace30() = RaceSummary(
+fun fakeRace30() = RaceSummary(
     raceId ="fe2571a1-c796-436e-90f8-8e0394141cb7",
     raceName ="Northside Trophies Pace (Sky 2)",
     raceNumber =2,

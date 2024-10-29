@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace7() = RaceSummary(
+fun fakeRace7() = RaceSummary(
     raceId = "45e07903-9302-491b-9942-690db2c7c952",
     raceName = "Dubbo Rsl Maiden",
     raceNumber = 1,

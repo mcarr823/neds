@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace4() = RaceSummary(
+fun fakeRace4() = RaceSummary(
     raceId = "1dd4a93f-a603-461c-a2c0-778a86a5289d",
     raceName = "Happy 90Th Birthday Norma Mcnally Hrnsw Rising Stars (Penalty Exempt Event)",
     raceNumber = 1,

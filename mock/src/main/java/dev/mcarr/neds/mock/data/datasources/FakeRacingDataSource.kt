@@ -19,7 +19,7 @@ class FakeRacingDataSource : IRacingDataSource {
      * @return A single RaceSummary object
      * */
     fun getRaceSummary(): RaceSummary {
-        return FakeRace1()
+        return fakeRace1()
     }
 
     /**
@@ -45,36 +45,36 @@ class FakeRacingDataSource : IRacingDataSource {
         expiredRaces: Int = 2
     ): List<RaceSummary> {
         val races = listOf(
-            FakeRace1(),
-            FakeRace2(),
-            FakeRace3(),
-            FakeRace4(),
-            FakeRace5(),
-            FakeRace6(),
-            FakeRace7(),
-            FakeRace8(),
-            FakeRace9(),
-            FakeRace10(),
-            FakeRace11(),
-            FakeRace12(),
-            FakeRace13(),
-            FakeRace14(),
-            FakeRace15(),
-            FakeRace16(),
-            FakeRace17(),
-            FakeRace18(),
-            FakeRace19(),
-            FakeRace20(),
-            FakeRace21(),
-            FakeRace22(),
-            FakeRace23(),
-            FakeRace24(),
-            FakeRace25(),
-            FakeRace26(),
-            FakeRace27(),
-            FakeRace28(),
-            FakeRace29(),
-            FakeRace30(),
+            fakeRace1(),
+            fakeRace2(),
+            fakeRace3(),
+            fakeRace4(),
+            fakeRace5(),
+            fakeRace6(),
+            fakeRace7(),
+            fakeRace8(),
+            fakeRace9(),
+            fakeRace10(),
+            fakeRace11(),
+            fakeRace12(),
+            fakeRace13(),
+            fakeRace14(),
+            fakeRace15(),
+            fakeRace16(),
+            fakeRace17(),
+            fakeRace18(),
+            fakeRace19(),
+            fakeRace20(),
+            fakeRace21(),
+            fakeRace22(),
+            fakeRace23(),
+            fakeRace24(),
+            fakeRace25(),
+            fakeRace26(),
+            fakeRace27(),
+            fakeRace28(),
+            fakeRace29(),
+            fakeRace30(),
         )
 
         // If we aren't updating the start times, just return the data as-is

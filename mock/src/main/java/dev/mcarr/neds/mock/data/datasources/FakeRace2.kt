@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace2() = RaceSummary(
+fun fakeRace2() = RaceSummary(
     raceId = "07cde0ca-8fa5-450a-81e3-4a17982d318f",
     raceName = "Sportsbet Same Race Multi Hcp (72)",
     raceNumber = 9,

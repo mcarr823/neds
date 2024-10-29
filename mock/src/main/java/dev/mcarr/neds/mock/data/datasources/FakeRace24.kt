@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace24() = RaceSummary(
+fun fakeRace24() = RaceSummary(
     raceId = "efb299ae-590d-4fdd-b979-1e1c650ab4a9",
     raceName = "Leyton Property Group (Rs1mw)",
     raceNumber = 5,

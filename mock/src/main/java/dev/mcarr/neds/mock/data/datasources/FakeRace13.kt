@@ -7,7 +7,7 @@ import dev.mcarr.neds.common.classes.racing.RaceAdvertisedStart
 import dev.mcarr.neds.common.classes.racing.RaceForm
 import dev.mcarr.neds.common.classes.racing.RaceSummary
 
-fun FakeRace13() = RaceSummary(
+fun fakeRace13() = RaceSummary(
     raceId = "64bd2805-9a76-4d70-8e13-b6e33835734f",
     raceName = "Tab Venue Mode",
     raceNumber = 1,

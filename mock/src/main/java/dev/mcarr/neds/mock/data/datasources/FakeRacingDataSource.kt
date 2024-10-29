@@ -29,13 +29,20 @@ class FakeRacingDataSource : IRacingDataSource {
      * updated before being returned. This is to ensure that the data is a
      * mix of expired and non-expired data.
      *
+     * You can also specify how many expired races you want to include in the
+     * response, for the sake of more predictable testing patterns.
+     *
      * @param updateStartTimes If true, update the start times of the test data
      * before returning it.
+     * @param expiredRaces If `updateStartTimes` is true, then `expiredRaces`
+     * is the number of races for which their times should be set to an expired
+     * value. ie. Races which started 60+ seconds ago.
      *
      * @return A single RaceSummary object
      * */
     fun getRaceSummaries(
-        updateStartTimes: Boolean = true
+        updateStartTimes: Boolean = true,
+        expiredRaces: Int = 2
     ): List<RaceSummary> {
         val races = listOf(
             FakeRace1(),
@@ -74,17 +81,38 @@ class FakeRacingDataSource : IRacingDataSource {
         if (!updateStartTimes)
             return races
 
+        // Calculate the current time in seconds.
+        // We use this value because the test data uses hard-coded times
+        // which will expire. So we need to adjust them relative to the
+        // current time in order to keep them relevant.
         val currentTimeMillis = System.currentTimeMillis()
         val currentTimeSeconds = currentTimeMillis / 1000
+
+        // This is the initial offset from the current time.
+        // We start at -50 (50 second before `currentTimeSeconds`) since
+        // that's just barely relevant (races expire 60 seconds after starting)
+        val initialOffsetSeconds = -50
+
+        // Next, we figure out the offset calculated from the number of races
+        // we want to show which actually ARE expired.
+        // Given that:
+        // - the initial offset is -50
+        // - races expire at -60, and
+        // - the loop below increases times in 10 second intervals
+        // We thus we need to calculate the expired races offset in -10 second
+        // intervals.
+        // So if we want to show 2 expired races, we calculate the offset to
+        // -20, which then updates the `calculatedOffset` to be -70.
+        // That would give us two expired races (at -60 and -70) and the rest
+        // not expired.
+        val expiredRacesOffsetSeconds = expiredRaces * -10
+        val calculatedOffset = initialOffsetSeconds + expiredRacesOffsetSeconds
 
         return races.mapIndexed { i, it ->
 
             // Offset measured in seconds.
             // Increase by 10 seconds per loop iteration.
-            // Start at -70 (70 seconds in the past) so the first
-            // two results (-70, -60) will be considered expired, and
-            // the rest won't.
-            val offset = i * 10 - 70
+            val offset = calculatedOffset + i * 10
 
             val newTimeSeconds = currentTimeSeconds + offset
             it.copy(

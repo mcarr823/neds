@@ -1,6 +1,5 @@
 package dev.mcarr.neds.common.sealed.racing
 
-import dev.mcarr.neds.common.classes.racing.RaceSummary
 import dev.mcarr.neds.common.classes.racing.RacingNetworkResponse
 
 sealed class RacingNetworkRequestOutcome<RacingNetworkResponse> {

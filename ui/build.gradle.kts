@@ -34,6 +34,9 @@ android {
     buildFeatures {
         compose = true
     }
+
+    // Needed for unit testing
+    @Suppress("UnstableApiUsage")
     testOptions {
         unitTests {
             isIncludeAndroidResources = true
@@ -63,6 +66,13 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.robolectric)
     testImplementation(libs.androidx.ui.test.junit4)
+
+    // Tools for previewing and unit test layout purposes.
+    // These are duplicated and some of them can probably
+    // be removed.
+    testImplementation(libs.ui.tooling)
+    testImplementation(libs.androidx.ui.tooling)
+    testImplementation(libs.androidx.ui.test.manifest)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)

@@ -20,15 +20,12 @@ import dev.mcarr.neds.common.classes.racing.NextToGoScreenUiState
 import dev.mcarr.neds.common.enums.racing.RacingCategory
 import dev.mcarr.neds.common.interfaces.viewmodels.INextToGoViewModel
 import dev.mcarr.neds.common.sealed.racing.RacingUseCaseOutcome
-import dev.mcarr.neds.data.repositories.RacingRepository
-import dev.mcarr.neds.domain.racing.GetRacingDataUseCase
 import dev.mcarr.neds.mock.data.datasources.FakeRacingDataSource
 import dev.mcarr.neds.mock.ui.viewmodels.FakeNextToGoViewModel
 import dev.mcarr.neds.ui.components.racing.RaceCardList
 import dev.mcarr.neds.ui.components.racing.RaceFilterButtonList
 import dev.mcarr.neds.ui.theme.NedsTheme
 import dev.mcarr.neds.ui.theme.Typography
-import dev.mcarr.neds.ui.viewmodels.NextToGoViewModel
 
 /**
  * Component for displaying the NextToGo screen of the Neds app.

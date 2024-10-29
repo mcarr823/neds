@@ -7,7 +7,6 @@ import dev.mcarr.neds.common.sealed.racing.RacingUseCaseOutcome
 import dev.mcarr.neds.data.repositories.RacingRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.map
 import kotlin.collections.filter
 
 /**
@@ -44,14 +43,13 @@ class GetRacingDataUseCase(
      * */
     val categorizedRaces = combine(
         categories,
-        cachedRaces,
-        { categoryList, races ->
-            val categoryIds = categoryList.map { it.uuid }
-            races
-                .filter { categoryList.isEmpty() || it.categoryId in categoryIds }
-                .sortedBy { it.advertisedStart.seconds }
-        }
-    )
+        cachedRaces
+    ) { categoryList, races ->
+        val categoryIds = categoryList.map { it.uuid }
+        races
+            .filter { categoryList.isEmpty() || it.categoryId in categoryIds }
+            .sortedBy { it.advertisedStart.seconds }
+    }
 
     /**
      * Set the list of categories by which the flow of races should be

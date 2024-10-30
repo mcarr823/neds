@@ -23,10 +23,6 @@ import dev.mcarr.neds.common.enums.http.HttpScheme
  * NedsUri objects must be created by using the internal Builder
  * class.
  * @see Builder
- *
- * Unused function declarations are suppressed.
- * This is a tool made to be extended. It is expected that not all
- * of its functions will be used from day one.
  * */
 @Suppress("unused")
 class NedsUri {

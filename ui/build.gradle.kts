@@ -55,7 +55,9 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(project(":data"))
+
+    // Only needed for unit testing
+    testImplementation(project(":data"))
 
     // Core coroutines library is needed for specifying return types
     // for interfaces which expose Flows.

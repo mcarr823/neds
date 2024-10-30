@@ -24,14 +24,14 @@ class FakeRacingDataSource : IRacingDataSource {
      * @return A single RaceSummary object
      * */
     fun getRaceSummary(
-        updateStartTimes: Boolean = true,
+        updateStartTime: Boolean = true,
         offset: Int = 30
     ): RaceSummary {
 
         val race = fakeRace1()
 
         // If we aren't updating the start time, just return the data as-is
-        if (!updateStartTimes)
+        if (!updateStartTime)
             return race
 
         // Calculate the current time in seconds.

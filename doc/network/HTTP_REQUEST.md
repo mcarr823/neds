@@ -1,5 +1,8 @@
 # Performing HTTP requests
 
+* `:net` module
+* `dev.mcarr.neds.net` package
+
 After defining the structure and parameters of the Neds URL, the compiled NedsUri object can be provided to a HTTP client class.
 
 Like the URI builder, HTTP client classes exist in the :net module.

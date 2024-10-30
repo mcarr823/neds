@@ -1,4 +1,4 @@
-# Data sources
+# MVVM and data
 
 Data traverses several modules, layers, and classes throughout the app.
 

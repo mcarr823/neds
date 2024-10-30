@@ -6,6 +6,13 @@ For example, it may provide data from a database, a network, or some other resou
 
 This module primarily provides two types of classes: DataSource and Repository classes.
 
+For more information on what those are and how they should be used, refer to the [documentation](../doc/README.md).
+
+## Module dependencies
+
+- :net
+- :common
+
 ## DataSource classes
 
 DataSource classes provide data from a single endpoint.
@@ -23,3 +30,7 @@ A repository has a one-to-many relationship with data sources.
 The Repository class acts as an intermediary between DataSource classes and other parts of the app.
 
 If part of the app wants to retrieve data, it will talk to the repository, and the repository will then query the appropriate data source.
+
+## More information
+
+Check the doc folder for more detail on these classes, including examples of their usage and how they fit into the app overall.

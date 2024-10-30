@@ -1,40 +1,44 @@
 # DataSource classes
 
+* `:data` module
+* `dev.mcarr.neds.data.datasources` package
+
 DataSource classes should be used when interfacing with a data provider of some description.
 
-For example, a database or a network API.
+You may have one or multiple DataSource classes for a given data type.
 
-URLs and the HTTP client should not be used directly from other modules.
+For example, you could have both a database-backed data source and a network-backed data source, both providing the same information.
 
-Instead, the net module should define API classes in the `dev.mcarr.neds.net.api` package which offer that functionality.
-
-A new API class should be created for each endpoint.
-
-For example, the RacingNetworkApi class provides functions which query the "racing/" endpoint.
-
-Each function in that class should be called statically, and there should be one function per defined method.
+The data source should then be accessed through a Repository class, which will talk to one or more data sources and provide that data to the rest of the app.
 
 For example:
 
+- OfflineRacingDataSource
+- OnlineRacingDataSource
+- RacingRepository
+
+In this example, OfflineRacingDataSource is a database-backed data source, and OnlineRacingDataSource is a network-backed data source.
+
+RacingRepository is a class which holds an instance of each of those data sources.
+
+The rest of the app would query the repository class, and the repository would manage the logic for deciding which of the two data sources to pull data from.
+
+## Example
+
 ```kotlin
-object FakeNetworkApi {
-    suspend fun getRacetrackData(
-        count: Int = 10,
-        category: Category = Category.RANDWICK_RACETRACK
+class OnlineRacingDataSource {
+
+    suspend fun getNextRace(
+        count: Int
     ): RacingNetworkResponse {
         val uri = NedsUri.Builder()
-            .setEventType(EventType.FAKE)
-            .setMethod(Method.RaceTrack)
+            .setEventType(EventType.RACING)
+            .setMethod(RacingMethod.NEXT_RACES.value)
             .setCount(count)
-            .setCategory(category)
             .build()
+
         return KtorClient.get(uri).body()
     }
+
 }
 ```
-
-In this example, the class is defined as an object, so all of its functions are static.
-
-There's a single function for retrieving Racetrack data, and changes to the queried data are made by changing the function arguments.
-
-The Racetrack data could then be queried by running `FakeNetworkApi.getRacetrackData()` from other modules.

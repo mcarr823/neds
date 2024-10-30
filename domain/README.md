@@ -6,13 +6,11 @@ It primarily sits between the :data and :ui modules.
 
 For example, data retrieved from the :data module will be manipulated by the :domain module before being exposed to the :ui module.
 
-## Package structure
+## Module dependencies
 
-The package for the :domain module is `dev.mcarr.neds.domain`.
-
-A separate package should be created for each type of event.
-
-eg. `dev.mcarr.neds.domain.racing` for any classes related to racing.
+- :common
+- :data
+- :mock
 
 ## Use cases
 
@@ -23,3 +21,7 @@ eg. If you want to expose and manipulate RacingData, you would create a GetRacin
 Each use case should take a *Repository class from the :data module.
 
 The repository should then provide data to the UseCase.
+
+## More information
+
+Check the doc folder for more detail on these classes, including examples of their usage and how they fit into the app overall.

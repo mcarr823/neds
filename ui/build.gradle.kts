@@ -56,7 +56,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
-    // Only needed for unit testing
+    // Not currently used, but it will be needed for unit testing
     testImplementation(project(":data"))
 
     // Core coroutines library is needed for specifying return types

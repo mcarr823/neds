@@ -1,10 +1,13 @@
 # Building URLs
 
+* `:net` module
+* `dev.mcarr.neds.net` package
+
 URLs are built by using the NedsUri.Builder class in the :net module by following the builder design pattern.
 
 Values are taken from enums in the :common module and fed to the builder, then compiled into a NedsUri object.
 
-For example:
+## Example
 
 ```kotlin
 val nedsUri = NedsUri.Builder()

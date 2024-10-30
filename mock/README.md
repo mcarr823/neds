@@ -6,6 +6,10 @@ This includes unit tests which require data to run, or composable previews which
 
 Test data should be contained in the :mock module instead, so it can be reused by multiple other modules and excluded from production builds more easily.
 
+## Module dependencies
+
+- :common
+
 ## Faking or mocking
 
 In spite of the package name, this module doesn't necessarily mock data.

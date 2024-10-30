@@ -9,3 +9,7 @@ For example, this module provides a HTTP client class which another module can u
 ## Module dependencies
 
 - :common
+
+## More information
+
+Check the doc folder for more detail on how the :net module is used to build and run HTTP requests.

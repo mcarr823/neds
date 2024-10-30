@@ -14,7 +14,7 @@ That DataSource class might then be built upon further to make the data more use
 See the [Data Sources](../datasource/README.md) doc for more information.
 
 1. [Building URLs](BUILD_URL.md)
-2. [Defining query parameters](QUERY_PARAMETERS.md)
-3. [Changing the URL structure](URL_STRUCTURE.md)
+2. [Query parameters](QUERY_PARAMETERS.md)
+3. [URL structure](URL_STRUCTURE.md)
 4. [Performing HTTP requests](HTTP_REQUEST.md)
 5. [Response data](RESPONSE_DATA.md)

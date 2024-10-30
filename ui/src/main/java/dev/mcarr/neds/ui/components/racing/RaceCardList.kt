@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.mcarr.neds.common.classes.racing.RaceCardData
@@ -28,7 +29,9 @@ fun RaceCardList(
     summaries: List<RaceCardData>
 ) {
 
-    LazyColumn {
+    LazyColumn(
+        modifier = Modifier.testTag("RaceCardList")
+    ) {
         items(numberToDisplay){ i ->
             Spacer(modifier = Modifier.height(8.dp))
             if (i < summaries.size) {

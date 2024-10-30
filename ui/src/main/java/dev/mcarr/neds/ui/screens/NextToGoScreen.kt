@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
@@ -79,7 +80,8 @@ fun NextToGoScreen(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 TextButton(
-                    onClick = model::resetState
+                    onClick = model::resetState,
+                    modifier = Modifier.testTag("NextToGoScreenTryAgainButton")
                 ) {
                     Text(
                         text = "Try Again",
@@ -107,7 +109,8 @@ fun NextToGoScreen(
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
                     text = "Loading...",
-                    style = Typography.headlineMedium
+                    style = Typography.headlineMedium,
+                    modifier = Modifier.testTag("NextToGoScreenInProgressText")
                 )
 
             }

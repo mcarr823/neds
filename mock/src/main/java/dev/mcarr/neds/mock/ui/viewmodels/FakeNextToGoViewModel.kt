@@ -16,35 +16,35 @@ import kotlinx.coroutines.flow.MutableStateFlow
  *
  * @param exactNumberOfResultsToDisplay Number of results the UI should display
  * @param state UI state variable containing the data to display
+ * @param setCategoryCallback Callback to invoke when the setCategory function
+ * is triggered.
+ * @param resetStateCallback Callback to invoke when the resetState function
+ * is triggered.
+ * @param pauseCallback Callback to invoke when the pause function is
+ * triggered.
  *
  * @see INextToGoViewModel
  * */
 class FakeNextToGoViewModel(
     override val exactNumberOfResultsToDisplay: Int,
-    state: NextToGoScreenUiState
+    state: NextToGoScreenUiState,
+    private val setCategoryCallback: (category: List<RacingCategory>) -> Unit = {},
+    private val resetStateCallback: () -> Unit = {},
+    private val pauseCallback: () -> Unit = {},
 ) : INextToGoViewModel{
 
     override val uiState = MutableStateFlow(state)
 
-    /**
-     * Leave this unimplemented for now.
-     * It isn't necessary for previewing purposes, but it might be
-     * useful later if the model gets used for unit tests.
-     * */
-    override fun setCategory(category: List<RacingCategory>) = Unit
+    override fun setCategory(category: List<RacingCategory>){
+        setCategoryCallback(category)
+    }
 
-    /**
-     * Leave this unimplemented for now.
-     * It isn't necessary for previewing purposes, but it might be
-     * useful later if the model gets used for unit tests.
-     * */
-    override fun resetState() = Unit
+    override fun resetState(){
+        resetStateCallback()
+    }
 
-    /**
-     * Leave this unimplemented for now.
-     * It isn't necessary for previewing purposes, but it might be
-     * useful later if the model gets used for unit tests.
-     * */
-    override fun pause() = Unit
+    override fun pause(){
+        pauseCallback()
+    }
 
 }

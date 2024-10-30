@@ -43,6 +43,11 @@ android {
     buildFeatures {
         compose = true
     }
+    lint {
+        // We have some long vectors (the app icon)
+        // Ignore them. It's just text and shouldn't be a performance issue
+        disable += "VectorPath"
+    }
 }
 
 dependencies {

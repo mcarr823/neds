@@ -40,4 +40,11 @@ class FakeNextToGoViewModel(
      * */
     override fun resetState() = Unit
 
+    /**
+     * Leave this unimplemented for now.
+     * It isn't necessary for previewing purposes, but it might be
+     * useful later if the model gets used for unit tests.
+     * */
+    override fun pause() = Unit
+
 }

@@ -21,4 +21,6 @@ interface INextToGoViewModel {
 
     fun resetState()
 
+    fun pause()
+
 }

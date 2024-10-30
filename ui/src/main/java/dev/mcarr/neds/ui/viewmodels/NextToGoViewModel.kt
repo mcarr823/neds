@@ -11,6 +11,7 @@ import dev.mcarr.neds.common.sealed.racing.RacingUseCaseOutcome
 import dev.mcarr.neds.domain.racing.GetRacingDataUseCase
 import dev.mcarr.neds.common.classes.racing.NextToGoScreenUiState
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -40,14 +41,9 @@ class NextToGoViewModel : ViewModel(), INextToGoViewModel {
     lateinit var source: GetRacingDataUseCase
 
     /**
-     * Flow of races for the currently selected category.
+     * Flow containing the current category selection.
      * */
-    private val filteredRaces by lazy { source.categorizedRaces }
-
-    /**
-     * Flow of the outcome of the current/most recent data request.
-     * */
-    private val lastOutcome by lazy { source.lastOutcome }
+    var categories = MutableStateFlow<List<RacingCategory>>(listOf())
 
     /**
      * Flow of the most recent manual flow update in milliseconds since epoch.
@@ -93,14 +89,22 @@ class NextToGoViewModel : ViewModel(), INextToGoViewModel {
     override val exactNumberOfResultsToDisplay = 5
 
     /**
+     * Coroutine responsible for managing the state of the event loop.
+     *
+     * This should probably be replaced by a more direct kind of
+     * lifecycle/coroutine integration at some point.
+     * */
+    private var eventLoop: Job? = null
+
+    /**
      * Flow which updates the UiState object exposed to the user interface.
      *
      * The data is all taken from the UseCase, but the flow itself can be triggered
      * again from this viewmodel.
      *
      * Updates if:
-     * - `filteredRaces` is updated. eg. If the category selection changes, or
-     * more races are downloaded.
+     * - `categories` is updated to reflect a change in the category filter
+     * - `cachedRaces` is updated. eg. If more races are downloaded.
      * - `lastOutcome` is updated. eg. If a UseCase request runs.
      * - `timeTick` is updated by another function to force new data
      *
@@ -113,16 +117,26 @@ class NextToGoViewModel : ViewModel(), INextToGoViewModel {
      * */
     override val uiState by lazy {
         combine(
-            filteredRaces,
-            lastOutcome,
+            categories,
+            source.cachedRaces,
+            source.lastOutcome,
             timeTick
-        ) { summaries, outcome, _ ->
+        ) { category, summaries, outcome, _ ->
+
+            // Filter out any races which are not the right category,
+            // or which have already expired.
+            // Also, sort the races by their start time.
+            val categoryIds = category.map { it.uuid }
+            val races = summaries
+                .filter { category.isEmpty() || it.categoryId in categoryIds }
+                .sortedBy { it.advertisedStart.seconds }
+                .filterNot { it.hasExpired() }
+                .map(RaceSummary::toRaceCardData)
+
             NextToGoScreenUiState(
-                category = source.categories.value,
+                category = category,
                 loadingState = outcome,
-                races = summaries
-                    .filterNot { it.hasExpired() }
-                    .map(RaceSummary::toRaceCardData)
+                races = races
             )
         }.stateIn(
             scope = viewModelScope,
@@ -151,7 +165,7 @@ class NextToGoViewModel : ViewModel(), INextToGoViewModel {
      * */
     override fun resetState(){
         lastDownloadMillis = 0L
-        lastOutcome.value = RacingUseCaseOutcome.Success()
+        source.lastOutcome.value = RacingUseCaseOutcome.Success()
         updateViews()
     }
 
@@ -164,7 +178,8 @@ class NextToGoViewModel : ViewModel(), INextToGoViewModel {
      * @param category List of categories by which to filter
      * */
     override fun setCategory(category: List<RacingCategory>){
-        source.setCategory(category)
+        Log.v("NextToGoViewModel", "Set category: "+category.joinToString(", "){ it.name })
+        this.categories.value = category
     }
 
     /**
@@ -173,7 +188,7 @@ class NextToGoViewModel : ViewModel(), INextToGoViewModel {
      * The amount of downloaded data is proportional to the attempt number.
      *
      * This is so we can download an increasing amount of data if we don't
-     * currently have enough to satify the UI's requirements.
+     * currently have enough to satisfy the UI's requirements.
      *
      * @param downloadAttempt How many downloads have been attempted, including
      * this attempt.
@@ -218,7 +233,7 @@ class NextToGoViewModel : ViewModel(), INextToGoViewModel {
         val intervalMillis = intervalSeconds * 1_000L
         var downloadAttempt = 0
 
-        viewModelScope.launch(Dispatchers.IO){
+        eventLoop = viewModelScope.launch(Dispatchers.IO){
 
             // Abort if the loading state has changed.
             // eg. The request has failed.
@@ -267,6 +282,10 @@ class NextToGoViewModel : ViewModel(), INextToGoViewModel {
             }
 
         }
+    }
+
+    override fun pause(){
+        eventLoop?.cancel()
     }
 
 }

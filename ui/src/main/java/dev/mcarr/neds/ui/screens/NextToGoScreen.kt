@@ -9,12 +9,13 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.mcarr.neds.common.classes.racing.NextToGoScreenUiState
 import dev.mcarr.neds.common.enums.racing.RacingCategory
@@ -114,9 +115,22 @@ fun NextToGoScreen(
 
     }
 
-    LaunchedEffect(Unit) {
-        // When the screen launches, start the activity loop in the viewmodel
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+
+        // When the screen launches, gains focus, or the orientation changes,
+        // start the activity loop in the viewmodel.
         model.resetState()
+
+    }
+
+    LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) {
+
+
+
+        // Stop the event loop from running when the app loses focus,
+        // is closed, or briefly when the orientation changes.
+        model.pause()
+
     }
 
 }

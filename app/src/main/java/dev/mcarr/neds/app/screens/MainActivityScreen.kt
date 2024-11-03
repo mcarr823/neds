@@ -14,9 +14,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dev.mcarr.neds.app.navigation.NextToGoDestination
-import dev.mcarr.neds.data.datasources.RacingDataSource
-import dev.mcarr.neds.data.repositories.RacingRepository
-import dev.mcarr.neds.domain.racing.GetRacingDataUseCase
 import dev.mcarr.neds.ui.screens.NextToGoScreen
 import dev.mcarr.neds.ui.theme.NedsTheme
 import dev.mcarr.neds.ui.viewmodels.NextToGoViewModel
@@ -58,14 +55,9 @@ fun MainActivityScreen() {
         ){
 
             composable<NextToGoDestination>{
-                val model = viewModel<NextToGoViewModel>().apply {
-                    this.source = GetRacingDataUseCase(
-                        repo = RacingRepository(
-                            racingDataSource = RacingDataSource()
-                        )
-                    )
-                }
-                NextToGoScreen(model)
+                NextToGoScreen(
+                    model = viewModel<NextToGoViewModel>()
+                )
             }
 
         }

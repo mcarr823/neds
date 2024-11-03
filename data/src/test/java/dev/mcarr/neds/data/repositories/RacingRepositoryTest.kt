@@ -2,7 +2,6 @@ package dev.mcarr.neds.data.repositories
 
 import dev.mcarr.neds.common.enums.racing.RacingCategory
 import dev.mcarr.neds.common.sealed.racing.RacingNetworkRequestOutcome
-import dev.mcarr.neds.data.datasources.RacingDataSource
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
@@ -28,9 +27,7 @@ class RacingRepositoryTest {
     /**
      * HTTP data source from which to retrieve racing data.
      * */
-    val repo = RacingRepository(
-        racingDataSource = RacingDataSource()
-    )
+    val repo = RacingRepository()
 
     /**
      * Requests information on a single race from the repository,

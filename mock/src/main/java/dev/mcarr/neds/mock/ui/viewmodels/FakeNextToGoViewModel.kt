@@ -3,16 +3,20 @@ package dev.mcarr.neds.mock.ui.viewmodels
 import dev.mcarr.neds.common.classes.racing.NextToGoScreenUiState
 import dev.mcarr.neds.common.enums.racing.RacingCategory
 import dev.mcarr.neds.common.interfaces.viewmodels.INextToGoViewModel
+import dev.mcarr.neds.mock.domain.racing.FakeGetRacingDataUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 
 /**
- * Fake viewmodel made specifically for previewing purposes.
+ * Fake viewmodel made for previewing and unit testing purposes.
  *
- * This viewmodel fakes the NextToGoViewModel class by implementing
- * the INextToGoViewModel interface.
+ * This viewmodel fakes the NextToGoViewModel class.
  *
- * It should be used when previewing screens which normally use
+ * It should be used when previewing or testing screens which normally use
  * the NextToGoViewModel class.
+ *
+ * Data is pulled from a local source (hard-coded test data) instead of a
+ * remote source, making it predictable and more suitable for testing
+ * and previewing.
  *
  * @param exactNumberOfResultsToDisplay Number of results the UI should display
  * @param state UI state variable containing the data to display
@@ -32,6 +36,8 @@ class FakeNextToGoViewModel(
     private val resetStateCallback: () -> Unit = {},
     private val pauseCallback: () -> Unit = {},
 ) : INextToGoViewModel{
+
+    override val source = FakeGetRacingDataUseCase()
 
     override val uiState = MutableStateFlow(state)
 

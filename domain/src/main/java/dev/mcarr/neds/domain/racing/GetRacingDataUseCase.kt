@@ -1,25 +1,26 @@
 package dev.mcarr.neds.domain.racing
 
 import dev.mcarr.neds.common.classes.racing.RaceSummary
+import dev.mcarr.neds.common.interfaces.domain.racing.IGetRacingDataUseCase
 import dev.mcarr.neds.common.sealed.racing.RacingNetworkRequestOutcome
 import dev.mcarr.neds.common.sealed.racing.RacingUseCaseOutcome
 import dev.mcarr.neds.data.repositories.RacingRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 
 /**
- * UseCase class which applies business logic to the results of a
- * RacingRepository's data for use by a viewmodel.
+ * Implementation of the IGetRacingDataUseCase interface which pulls data
+ * from a RacingRepository object.
  *
- * @param repo Repository from which to pull data.
+ * Data is queried from a HTTP endpoint and cached locally in a flow.
+ *
+ * @see IGetRacingDataUseCase
+ * @see RacingRepository
  * */
-class GetRacingDataUseCase(
-    private val repo: RacingRepository
-) {
+class GetRacingDataUseCase() : IGetRacingDataUseCase {
 
-    /**
-     * Full, unfiltered list of races cached from the RacingRepository.
-     * */
-    var cachedRaces = MutableStateFlow<List<RaceSummary>>(listOf())
+    override val repo = RacingRepository()
+
+    override val cachedRaces = MutableStateFlow<List<RaceSummary>>(listOf())
 
     /**
      * State of the latest RacingRepository request.
@@ -28,11 +29,7 @@ class GetRacingDataUseCase(
         RacingUseCaseOutcome.Progress()
     )
 
-    /**
-     * Queries the RacingRepository for `count` more races and updates the
-     * flows accordingly.
-     * */
-    suspend fun getMoreRaces(count: Int){
+    override suspend fun getMoreRaces(count: Int){
 
         repo.getNextRace(count)
 

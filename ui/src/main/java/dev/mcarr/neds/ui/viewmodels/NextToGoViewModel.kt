@@ -23,22 +23,12 @@ import java.util.concurrent.TimeUnit
 /**
  * Viewmodel which provides functionality specific to the NextToGoScreen composable.
  *
- * Note that several of the variables are lazy.
- * This is because the UseCase class is lateinit, and the flows all rely on data
- * from that class.
- *
- * This can probably be changed if/when automatic dependency injection is implemented.
- *
  * @see dev.mcarr.neds.ui.screens.NextToGoScreen
  * @see GetRacingDataUseCase
  * */
 class NextToGoViewModel : ViewModel(), INextToGoViewModel {
 
-    /**
-     * :domain layer class for applying business logic to the network data
-     * before exposing it to this viewmodel.
-     * */
-    lateinit var source: GetRacingDataUseCase
+    override val source = GetRacingDataUseCase()
 
     /**
      * Flow containing the current category selection.
@@ -80,12 +70,6 @@ class NextToGoViewModel : ViewModel(), INextToGoViewModel {
      * */
     private val intervalSeconds = 1
 
-    /**
-     * The exact number of races we want to display at all times.
-     *
-     * This number is used by both the UI (to show that exact number of results)
-     * and by the viewmodel (to download more data if it doesn't meet this required number).
-     * */
     override val exactNumberOfResultsToDisplay = 5
 
     /**
@@ -115,68 +99,45 @@ class NextToGoViewModel : ViewModel(), INextToGoViewModel {
      * @see GetRacingDataUseCase
      * @see NextToGoScreenUiState
      * */
-    override val uiState by lazy {
-        combine(
-            categories,
-            source.cachedRaces,
-            source.lastOutcome,
-            timeTick
-        ) { category, summaries, outcome, _ ->
+    override val uiState = combine(
+        categories,
+        source.cachedRaces,
+        source.lastOutcome,
+        timeTick
+    ) { category, summaries, outcome, _ ->
 
-            // Filter out any races which are not the right category,
-            // or which have already expired.
-            // Also, sort the races by their start time.
-            val categoryIds = category.map { it.uuid }
-            val races = summaries
-                .filter { category.isEmpty() || it.categoryId in categoryIds }
-                .sortedBy { it.advertisedStart.seconds }
-                .filterNot { it.hasExpired() }
-                .map(RaceSummary::toRaceCardData)
+        // Filter out any races which are not the right category,
+        // or which have already expired.
+        // Also, sort the races by their start time.
+        val categoryIds = category.map { it.uuid }
+        val races = summaries
+            .filter { category.isEmpty() || it.categoryId in categoryIds }
+            .sortedBy { it.advertisedStart.seconds }
+            .filterNot { it.hasExpired() }
+            .map(RaceSummary::toRaceCardData)
 
-            NextToGoScreenUiState(
-                category = category,
-                loadingState = outcome,
-                races = races
-            )
-        }.stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5000),
-            initialValue = NextToGoScreenUiState(
-                category = listOf(),
-                loadingState = RacingUseCaseOutcome.Success(),
-                races = listOf()
-            )
+        NextToGoScreenUiState(
+            category = category,
+            loadingState = outcome,
+            races = races
         )
-    }
 
-    /**
-     * Reset the state of the viewmodel.
-     *
-     * This should be performed when a screen starts using this viewmodel.
-     * eg. In a LaunchedEffect which runs once.
-     *
-     * It can also be run to restart the flow of events when something goes
-     * wrong.
-     * eg. An error is encountered while downloading data.
-     *
-     * Note that this doesn't reset all variables.
-     * It only resets variables which are pertinent to the viewmodel providing
-     * an ongoing data feed to the UI.
-     * */
+    }.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5000),
+        initialValue = NextToGoScreenUiState(
+            category = listOf(),
+            loadingState = RacingUseCaseOutcome.Success(),
+            races = listOf()
+        )
+    )
+
     override fun resetState(){
         lastDownloadMillis = 0L
         source.lastOutcome.value = RacingUseCaseOutcome.Success()
         updateViews()
     }
 
-    /**
-     * Apply a list of categories by which to filter the race data.
-     *
-     * This value is passed on to the UseCase, which is responsible for
-     * the actual filtering.
-     *
-     * @param category List of categories by which to filter
-     * */
     override fun setCategory(category: List<RacingCategory>){
         Log.v("NextToGoViewModel", "Set category: "+category.joinToString(", "){ it.name })
         this.categories.value = category

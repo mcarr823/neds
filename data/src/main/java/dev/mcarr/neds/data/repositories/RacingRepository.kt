@@ -1,40 +1,48 @@
 package dev.mcarr.neds.data.repositories
 
 import dev.mcarr.neds.common.classes.racing.RacingNetworkResponse
-import dev.mcarr.neds.common.interfaces.data.datasources.IRacingDataSource
+import dev.mcarr.neds.common.interfaces.data.repositories.IRacingRepository
 import dev.mcarr.neds.common.sealed.racing.RacingNetworkRequestOutcome
+import dev.mcarr.neds.data.datasources.RacingDataSource
 import kotlinx.coroutines.flow.MutableStateFlow
 
 /**
- * Repository for requesting racing data.
+ * Live implementation of the IRacingRepository interface.
  *
- * @param racingDataSource Data source from which to retrieve
- * racing data.
+ * This repository class requests real racing data from a live, remote
+ * endpoint via HTTP requests.
+ *
+ * @see IRacingRepository
  * */
-class RacingRepository(
-    private val racingDataSource: IRacingDataSource
-) {
+class RacingRepository() : IRacingRepository{
 
-    val nextRaces = MutableStateFlow<RacingNetworkRequestOutcome<RacingNetworkResponse>>(
+    override val racingDataSource = RacingDataSource()
+
+    override val nextRaces = MutableStateFlow<RacingNetworkRequestOutcome<RacingNetworkResponse>>(
         RacingNetworkRequestOutcome.Progress()
     )
 
-    /**
-     * Retrieves the next `count` number of races from the
-     * data source and parses the RacingNetworkResponse,
-     * providing the results as a list of RaceSummary objects.
-     *
-     * @param count Number of race summaries to return in the response.
-     * */
-    suspend fun getNextRace(count: Int) {
+    override suspend fun getNextRace(count: Int) {
 
+        // Set the state to Progress initially, since the HTTP request
+        // won't be instantaneous.
         nextRaces.value = RacingNetworkRequestOutcome.Progress()
+
         try {
+
+            // Attempt to retrieve some races from the remote endpoint.
+            // If the request succeeds, set the state to Success and provide
+            // the state flow with the retrieved races.
             val races = racingDataSource.getNextRace(count)
             nextRaces.value = RacingNetworkRequestOutcome.Success(races)
+
         }catch (e: Exception){
+
+            // If an exception occurs (eg. no internet connection), set
+            // the state to Failure.
             e.printStackTrace()
             nextRaces.value = RacingNetworkRequestOutcome.Failure(e)
+
         }
 
     }

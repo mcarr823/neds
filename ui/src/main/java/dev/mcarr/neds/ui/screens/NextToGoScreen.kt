@@ -128,8 +128,6 @@ fun NextToGoScreen(
 
     LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) {
 
-
-
         // Stop the event loop from running when the app loses focus,
         // is closed, or briefly when the orientation changes.
         model.pause()
@@ -187,11 +185,14 @@ fun PreviewNextToGoFailed(){
 fun PreviewNextToGoInProgress(){
     NedsTheme {
         NextToGoScreen(
-            model = FakeNextToGoViewModel(exactNumberOfResultsToDisplay = 5, state = NextToGoScreenUiState(
-                    listOf(RacingCategory.HORSE_RACING, RacingCategory.GREYHOUND_RACING),
-                    RacingUseCaseOutcome.Progress(),
-                    listOf()
-                ))
+            model = FakeNextToGoViewModel(
+                exactNumberOfResultsToDisplay = 5,
+                state = NextToGoScreenUiState(
+                    category = listOf(RacingCategory.HORSE_RACING, RacingCategory.GREYHOUND_RACING),
+                    loadingState = RacingUseCaseOutcome.Progress(),
+                    races = listOf()
+                )
+            )
         )
     }
 }

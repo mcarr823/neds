@@ -1,26 +1,20 @@
-package dev.mcarr.neds.domain.racing
+package dev.mcarr.neds.mock.domain.racing
 
-import dev.mcarr.neds.data.repositories.RacingRepository
-import dev.mcarr.neds.mock.data.datasources.FakeRacingDataSource
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
 
 /**
- * Series of tests for the GetRacingDataUseCase class.
+ * Series of tests for the FakeGetRacingDataUseCase class.
  * */
 @OptIn(ExperimentalCoroutinesApi::class)
-class GetRacingDataUseCaseTest {
+class FakeGetRacingDataUseCaseTest {
 
     /**
      * Create a UseCase class with fake data from the mock repository.
      * */
-    val useCase = GetRacingDataUseCase(
-        repo = RacingRepository(
-            racingDataSource = FakeRacingDataSource()
-        )
-    )
+    val useCase = FakeGetRacingDataUseCase()
 
     /**
      * Requests races from the UseCase class, then confirms that the number

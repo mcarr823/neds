@@ -43,4 +43,8 @@ dependencies {
 
     // Needed for the @Serializable tag on data classes
     implementation(libs.kotlinx.serialization.json)
+
+    // Robolectric is needed for mocking the Android Uri class.
+    // Coroutines needed for testing suspend functions.
+    testImplementation(libs.junit)
 }

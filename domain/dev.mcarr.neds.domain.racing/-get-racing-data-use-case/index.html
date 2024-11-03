@@ -62,24 +62,24 @@
   <div class="breadcrumbs"><a href="../../index.html">domain</a><span class="delimiter">/</span><a href="../index.html">dev.mcarr.neds.domain.racing</a><span class="delimiter">/</span><span class="current">GetRacingDataUseCase</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Get</span><wbr><span>Racing</span><wbr><span>Data</span><wbr><span>Use</span><wbr><span><span>Case</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":domain:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">GetRacingDataUseCase</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">repo<span class="token operator">: </span><a href="../../../data/dev.mcarr.neds.data.repositories/-racing-repository/index.html">RacingRepository</a></span></span><span class="token punctuation">)</span></div><p class="paragraph">UseCase class which applies business logic to the results of a RacingRepository's data for use by a viewmodel.</p><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":domain:dokkaHtmlPartial/release" data-filterable-set=":domain:dokkaHtmlPartial/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>repo</span></span></u></div></span></div><div><div class="title"><p class="paragraph">Repository from which to pull data.</p></div></div></div></div></div></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":domain:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">GetRacingDataUseCase</a> : <a href="../../../common/dev.mcarr.neds.common.interfaces.domain.racing/-i-get-racing-data-use-case/index.html">IGetRacingDataUseCase</a></div><p class="paragraph">Implementation of the IGetRacingDataUseCase interface which pulls data from a RacingRepository object.</p><p class="paragraph">Data is queried from a HTTP endpoint and cached locally in a flow.</p><h4 class="">See also</h4><div class="table"><div class="table-row" data-filterable-current=":domain:dokkaHtmlPartial/release" data-filterable-set=":domain:dokkaHtmlPartial/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../../../common/dev.mcarr.neds.common.interfaces.domain.racing/-i-get-racing-data-use-case/index.html"><span>IGet</span><wbr><span>Racing</span><wbr><span>Data</span><wbr><span>Use</span><wbr><span><span>Case</span></span></a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":domain:dokkaHtmlPartial/release" data-filterable-set=":domain:dokkaHtmlPartial/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../../../data/dev.mcarr.neds.data.repositories/-racing-repository/index.html"><span>Racing</span><wbr><span><span>Repository</span></span></a></div></span></div><div></div></div></div></div></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
       <div data-togglable="CONSTRUCTOR">
         <h2 class="">Constructors</h2>
-        <div class="table"><a data-name="-754343509%2FConstructors%2F-785065393" anchor-label="GetRacingDataUseCase" id="-754343509%2FConstructors%2F-785065393" data-filterable-set=":domain:dokkaHtmlPartial/release"></a>
+        <div class="table"><a data-name="1110236017%2FConstructors%2F-785065393" anchor-label="GetRacingDataUseCase" id="1110236017%2FConstructors%2F-785065393" data-filterable-set=":domain:dokkaHtmlPartial/release"></a>
           <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":domain:dokkaHtmlPartial/release" data-filterable-set=":domain:dokkaHtmlPartial/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-get-racing-data-use-case.html"><span>Get</span><wbr><span>Racing</span><wbr><span>Data</span><wbr><span>Use</span><wbr><span><span>Case</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-754343509%2FConstructors%2F-785065393"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1110236017%2FConstructors%2F-785065393"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":domain:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">repo<span class="token operator">: </span><a href="../../../data/dev.mcarr.neds.data.repositories/-racing-repository/index.html">RacingRepository</a></span></span><span class="token punctuation">)</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":domain:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
                 </div>
               </div>
             </div>
@@ -98,7 +98,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":domain:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">var </span><a href="cached-races.html">cachedRaces</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../../common/dev.mcarr.neds.common.classes.racing/-race-summary/index.html">RaceSummary</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Full, unfiltered list of races cached from the RacingRepository.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":domain:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="cached-races.html">cachedRaces</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../../common/dev.mcarr.neds.common.classes.racing/-race-summary/index.html">RaceSummary</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
                 </div>
               </div>
             </div>
@@ -118,6 +118,21 @@
               </div>
             </div>
           </div>
+<a data-name="-1232322648%2FProperties%2F-785065393" anchor-label="repo" id="-1232322648%2FProperties%2F-785065393" data-filterable-set=":domain:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":domain:dokkaHtmlPartial/release" data-filterable-set=":domain:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="repo.html"><span><span>repo</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1232322648%2FProperties%2F-785065393"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":domain:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="repo.html">repo</a><span class="token operator">: </span><a href="../../../data/dev.mcarr.neds.data.repositories/-racing-repository/index.html">RacingRepository</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div data-togglable="FUNCTION">
@@ -132,7 +147,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":domain:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-more-races.html"><span class="token function">getMoreRaces</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">count<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Queries the RacingRepository for <code class="lang-kotlin">count</code> more races and updates the flows accordingly.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":domain:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="get-more-races.html"><span class="token function">getMoreRaces</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">count<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div></div></div>
                 </div>
               </div>
             </div>

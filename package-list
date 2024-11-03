@@ -11,6 +11,8 @@ dev.mcarr.neds.common.classes.racing
 dev.mcarr.neds.common.enums.http
 dev.mcarr.neds.common.enums.racing
 dev.mcarr.neds.common.interfaces.data.datasources
+dev.mcarr.neds.common.interfaces.data.repositories
+dev.mcarr.neds.common.interfaces.domain.racing
 dev.mcarr.neds.common.interfaces.viewmodels
 dev.mcarr.neds.common.sealed.racing
 module:data
@@ -20,6 +22,8 @@ module:domain
 dev.mcarr.neds.domain.racing
 module:mock
 dev.mcarr.neds.mock.data.datasources
+dev.mcarr.neds.mock.data.repositories
+dev.mcarr.neds.mock.domain.racing
 dev.mcarr.neds.mock.ui.viewmodels
 module:net
 dev.mcarr.neds.net.client

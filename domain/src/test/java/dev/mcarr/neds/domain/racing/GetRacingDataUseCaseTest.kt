@@ -1,7 +1,6 @@
 package dev.mcarr.neds.domain.racing
 
 import dev.mcarr.neds.common.sealed.racing.RacingUseCaseOutcome
-import dev.mcarr.neds.mock.domain.racing.FakeGetRacingDataUseCase
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.test.runTest
 import org.junit.Test

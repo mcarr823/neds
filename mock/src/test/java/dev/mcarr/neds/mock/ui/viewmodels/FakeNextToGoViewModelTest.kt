@@ -3,7 +3,6 @@ package dev.mcarr.neds.mock.ui.viewmodels
 import dev.mcarr.neds.common.classes.racing.NextToGoScreenUiState
 import dev.mcarr.neds.common.sealed.racing.RacingUseCaseOutcome
 import junit.framework.TestCase.assertEquals
-import kotlinx.coroutines.test.runTest
 import org.junit.Test
 
 /**

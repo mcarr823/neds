@@ -69,6 +69,10 @@ dependencies {
     testImplementation(libs.robolectric)
     testImplementation(libs.androidx.ui.test.junit4)
 
+    // Needed for running suspending functions in unit tests
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.androidx.test.core)
+
     // Tools for previewing and unit test layout purposes.
     // These are duplicated and some of them can probably
     // be removed.

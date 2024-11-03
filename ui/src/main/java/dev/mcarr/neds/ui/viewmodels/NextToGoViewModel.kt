@@ -38,13 +38,13 @@ class NextToGoViewModel : ViewModel(), INextToGoViewModel {
     /**
      * Flow of the most recent manual flow update in milliseconds since epoch.
      * */
-    private val timeTick = MutableStateFlow<Long>(0L)
+    val timeTick = MutableStateFlow<Long>(0L)
 
     /**
      * Time in milliseconds since epoch at which the last attempt to download
      * race data from the server was attempted.
      * */
-    private var lastDownloadMillis = 0L
+    var lastDownloadMillis = 0L
 
     /**
      * Size increment applied to the function responsible for downloading races.
@@ -53,7 +53,7 @@ class NextToGoViewModel : ViewModel(), INextToGoViewModel {
      *
      * @see downloadRaceData
      * */
-    private var downloadSizeIncrement = 20
+    private val downloadSizeIncrement = 20
 
     /**
      * The maximum number of download attempts which should be allowed.
@@ -62,7 +62,7 @@ class NextToGoViewModel : ViewModel(), INextToGoViewModel {
      *
      * @see downloadRaceData
      * */
-    private var maxDownloadAttempts = 5
+    private val maxDownloadAttempts = 5
 
     /**
      * Interval at which the flow data should be manually updated to reflect the
@@ -78,7 +78,7 @@ class NextToGoViewModel : ViewModel(), INextToGoViewModel {
      * This should probably be replaced by a more direct kind of
      * lifecycle/coroutine integration at some point.
      * */
-    private var eventLoop: Job? = null
+    var eventLoop: Job? = null
 
     /**
      * Flow which updates the UiState object exposed to the user interface.

@@ -47,5 +47,6 @@ dependencies {
     testImplementation(project(":mock"))
 
     testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
     testImplementation(libs.kotlinx.coroutines.test)
 }

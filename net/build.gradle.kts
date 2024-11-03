@@ -49,6 +49,8 @@ dependencies {
     implementation(libs.ktor.serialization.json)
 
     // Robolectric is needed for mocking the Android Uri class.
+    // Coroutines needed for testing suspend functions.
     testImplementation(libs.junit)
     testImplementation(libs.robolectric)
+    testImplementation(libs.kotlinx.coroutines.test)
 }
